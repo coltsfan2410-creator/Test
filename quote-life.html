@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Life Insurance Quote — Killion & Hall Insurance</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --ink: #0f0f0f; --ink-light: #4a4a4a; --ink-muted: #888;
+      --cream: #f9f7f4; --white: #ffffff; --gold: #b8935a; --gold-light: #d4ab72;
+      --blue-deep: #1a2e4a; --border: #e8e4de; --green: #2d7a4f;
+      --sans: 'Inter', system-ui, sans-serif; --serif: 'Playfair Display', Georgia, serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--sans); background: var(--cream); color: var(--ink); line-height: 1.6; -webkit-font-smoothing: antialiased; min-height: 100vh; }
+
+    nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 72px; background: rgba(255,255,255,0.97); border-bottom: 1px solid var(--border); box-shadow: 0 1px 12px rgba(0,0,0,0.05); }
+    .nav-logo { font-family: var(--serif); font-size: 18px; font-weight: 500; color: var(--ink); text-decoration: none; }
+    .nav-logo span { color: var(--gold); }
+    .nav-right { display: flex; align-items: center; gap: 16px; }
+    .nav-phone { font-size: 13px; font-weight: 600; color: var(--ink-light); text-decoration: none; }
+    .nav-phone:hover { color: var(--gold); }
+    .nav-policyholder { font-size: 13px; font-weight: 600; color: var(--white); background: var(--blue-deep); padding: 8px 18px; border-radius: 100px; text-decoration: none; transition: background 0.2s; }
+    .nav-policyholder:hover { background: var(--gold); }
+
+    .wizard-shell { max-width: 680px; margin: 0 auto; padding: 48px 24px 96px; }
+
+    .progress-wrap { margin-bottom: 40px; }
+    .progress-labels { display: flex; justify-content: space-between; margin-bottom: 10px; }
+    .progress-label { font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-muted); transition: color 0.3s; }
+    .progress-label.active { color: var(--gold); }
+    .progress-label.done { color: var(--green); }
+    .progress-bar-track { height: 4px; background: var(--border); border-radius: 99px; overflow: hidden; }
+    .progress-bar-fill { height: 100%; background: linear-gradient(90deg, var(--gold), var(--gold-light)); border-radius: 99px; transition: width 0.5s cubic-bezier(0.4,0,0.2,1); }
+
+    .step { display: none; animation: stepIn 0.35s ease; }
+    .step.active { display: block; }
+    @keyframes stepIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+
+    .step-eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+    .step-headline { font-family: var(--serif); font-size: clamp(28px, 5vw, 42px); font-weight: 500; color: var(--ink); letter-spacing: -0.02em; margin-bottom: 8px; line-height: 1.2; }
+    .step-sub { font-size: 15px; color: var(--ink-light); margin-bottom: 36px; }
+
+    .option-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px; }
+    .option-item { background: var(--white); border: 2px solid var(--border); border-radius: 14px; padding: 18px 22px; cursor: pointer; display: flex; align-items: center; gap: 14px; font-size: 15px; font-weight: 500; color: var(--ink); transition: border-color 0.2s, box-shadow 0.15s; }
+    .option-item:hover { border-color: var(--gold); box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+    .option-item.selected { border-color: var(--gold); background: #fdf8f2; }
+    .option-check { width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.2s; }
+    .option-item.selected .option-check { border-color: var(--gold); background: var(--gold); }
+    .option-item.selected .option-check::after { content: '\2713'; color: white; font-size: 12px; font-weight: 700; }
+
+    /* Height/Weight grid */
+    .hw-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 32px; }
+    .hw-card { background: var(--white); border: 1.5px solid var(--border); border-radius: 16px; padding: 24px; }
+    .hw-card-label { font-size: 12px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 14px; }
+    .hw-inputs { display: flex; gap: 10px; }
+    .hw-unit { display: flex; flex-direction: column; gap: 6px; flex: 1; }
+    .hw-unit-label { font-size: 11px; color: var(--ink-muted); font-weight: 600; }
+    .hw-input { background: var(--cream); border: 1.5px solid var(--border); border-radius: 10px; padding: 12px 14px; font-size: 18px; font-weight: 600; color: var(--ink); font-family: var(--sans); outline: none; width: 100%; text-align: center; transition: border-color 0.2s; }
+    .hw-input:focus { border-color: var(--gold); background: var(--white); }
+    .hw-input::placeholder { font-size: 14px; font-weight: 400; color: var(--ink-muted); }
+
+    .yn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 32px; }
+    .yn-card { background: var(--white); border: 2px solid var(--border); border-radius: 20px; padding: 28px 24px; text-align: center; cursor: pointer; transition: border-color 0.2s, transform 0.15s, box-shadow 0.2s; user-select: none; }
+    .yn-card:hover { border-color: var(--gold); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+    .yn-card.selected { border-color: var(--gold); background: #fdf8f2; }
+    .yn-label { font-size: 20px; font-weight: 700; color: var(--ink); }
+    .yn-desc { font-size: 13px; color: var(--ink-muted); margin-top: 4px; }
+
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+    .field-row.full { grid-template-columns: 1fr; }
+    .field-group { display: flex; flex-direction: column; gap: 6px; }
+    .field-label { font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-muted); }
+    .field-input, .field-select { background: var(--white); border: 1.5px solid var(--border); border-radius: 12px; padding: 14px 16px; font-size: 15px; color: var(--ink); font-family: var(--sans); outline: none; transition: border-color 0.2s; width: 100%; }
+    .field-input:focus, .field-select:focus { border-color: var(--gold); }
+    .field-input::placeholder { color: var(--ink-muted); }
+
+    .btn-row { display: flex; gap: 12px; align-items: center; margin-top: 8px; }
+    .btn-back { background: none; border: 1.5px solid var(--border); border-radius: 100px; padding: 14px 28px; font-size: 15px; font-weight: 600; color: var(--ink-light); cursor: pointer; font-family: var(--sans); transition: all 0.2s; }
+    .btn-back:hover { border-color: var(--ink); color: var(--ink); }
+    .btn-next { background: var(--ink); color: var(--white); border: none; border-radius: 100px; padding: 14px 36px; font-size: 15px; font-weight: 600; cursor: pointer; font-family: var(--sans); transition: background 0.2s; flex: 1; }
+    .btn-next:hover { background: var(--gold); }
+    .btn-next:disabled { background: var(--border); color: var(--ink-muted); cursor: not-allowed; }
+    .btn-submit { background: var(--gold); color: var(--white); border: none; border-radius: 100px; padding: 16px 40px; font-size: 16px; font-weight: 700; cursor: pointer; font-family: var(--sans); transition: background 0.2s; flex: 1; box-shadow: 0 4px 20px rgba(184,147,90,0.35); }
+    .btn-submit:hover { background: #a07840; }
+
+    .review-box { background: var(--white); border: 1.5px solid var(--border); border-radius: 16px; padding: 24px 28px; margin-bottom: 24px; }
+    .review-row { display: flex; gap: 8px; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
+    .review-row:last-child { border-bottom: none; }
+    .review-key { font-weight: 600; color: var(--ink); min-width: 150px; flex-shrink: 0; }
+    .review-val { color: var(--ink-light); }
+
+    .success-screen { display: none; text-align: center; padding: 64px 24px; }
+    .success-screen.active { display: block; animation: stepIn 0.4s ease; }
+    .success-title { font-family: var(--serif); font-size: 36px; font-weight: 500; color: var(--ink); margin-bottom: 12px; }
+    .success-sub { font-size: 16px; color: var(--ink-light); max-width: 420px; margin: 0 auto 32px; line-height: 1.7; }
+    .success-badge { display: inline-flex; align-items: center; gap: 10px; background: #f0faf4; border: 1px solid #a3d4b8; border-radius: 12px; padding: 14px 24px; font-size: 14px; font-weight: 600; color: var(--green); }
+
+    .trust-strip { display: flex; gap: 24px; align-items: center; justify-content: center; padding: 24px 0 0; flex-wrap: wrap; }
+    .trust-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--ink-muted); font-weight: 500; }
+    .trust-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+
+    footer { background: var(--ink); color: rgba(255,255,255,0.55); padding: 32px 48px 24px; }
+    .footer-logo { font-family: var(--serif); font-size: 18px; font-weight: 500; color: var(--white); text-decoration: none; display: block; margin-bottom: 12px; }
+    .footer-logo span { color: var(--gold); }
+    .footer-nav { display: flex; gap: 28px; margin-bottom: 20px; flex-wrap: wrap; }
+    .footer-nav a { font-size: 13px; color: rgba(255,255,255,0.6); text-decoration: none; }
+    .footer-nav a:hover { color: var(--white); }
+    .footer-bottom { font-size: 12px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; }
+
+    @media (max-width: 640px) {
+      nav { padding: 0 20px; }
+      .wizard-shell { padding: 32px 16px 72px; }
+      .hw-grid { grid-template-columns: 1fr; }
+      .yn-grid { grid-template-columns: 1fr; }
+      .field-row { grid-template-columns: 1fr; }
+      .btn-row { flex-direction: column; }
+      .btn-back, .btn-next, .btn-submit { width: 100%; text-align: center; }
+      footer { padding: 28px 20px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">Killion <span>&</span> Hall</a>
+  <div class="nav-right">
+    <a href="tel:3178881040" class="nav-phone">(317) 888-1040</a>
+    <a href="policyholder.html" class="nav-policyholder">For Policyholders</a>
+  </div>
+</nav>
+
+<div class="wizard-shell">
+
+  <div class="progress-wrap" id="progressWrap">
+    <div class="progress-labels">
+      <span class="progress-label active" id="lbl-start">Start</span>
+      <span class="progress-label" id="lbl-health">Health</span>
+      <span class="progress-label" id="lbl-coverage">Coverage</span>
+      <span class="progress-label" id="lbl-contact">Contact</span>
+    </div>
+    <div class="progress-bar-track">
+      <div class="progress-bar-fill" id="progressFill" style="width:5%"></div>
+    </div>
+  </div>
+
+  <!-- Step 0: Height & Weight -->
+  <div class="step active" id="step-0">
+    <div class="step-eyebrow">Life Insurance Quote</div>
+    <h1 class="step-headline">Let's start with the basics</h1>
+    <p class="step-sub">Height and weight help insurers determine the right rates for you. No medical exam required for this initial quote.</p>
+    <div class="hw-grid">
+      <div class="hw-card">
+        <div class="hw-card-label">Height</div>
+        <div class="hw-inputs">
+          <div class="hw-unit">
+            <div class="hw-unit-label">Feet</div>
+            <input class="hw-input" id="heightFt" type="number" min="3" max="8" placeholder="5" />
+          </div>
+          <div class="hw-unit">
+            <div class="hw-unit-label">Inches</div>
+            <input class="hw-input" id="heightIn" type="number" min="0" max="11" placeholder="9" />
+          </div>
+        </div>
+      </div>
+      <div class="hw-card">
+        <div class="hw-card-label">Weight</div>
+        <div class="hw-inputs">
+          <div class="hw-unit">
+            <div class="hw-unit-label">Pounds</div>
+            <input class="hw-input" id="weight" type="number" min="50" max="600" placeholder="160" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="btn-row">
+      <button class="btn-next" onclick="validateHW()">Continue</button>
+    </div>
+    <div class="trust-strip">
+      <span class="trust-item"><span class="trust-dot"></span>No commitment required</span>
+      <span class="trust-item"><span class="trust-dot"></span>No medical exam needed</span>
+      <span class="trust-item"><span class="trust-dot"></span>Local Indianapolis agents</span>
+    </div>
+  </div>
+
+  <!-- Step 1: Date of Birth & Gender -->
+  <div class="step" id="step-1">
+    <div class="step-eyebrow">Life Insurance Quote</div>
+    <h1 class="step-headline">A little more about you</h1>
+    <p class="step-sub">These details help determine the right coverage options and rates.</p>
+    <div class="field-row">
+      <div class="field-group">
+        <label class="field-label">Date of Birth *</label>
+        <input class="field-input" id="dob" type="date" />
+      </div>
+      <div class="field-group">
+        <label class="field-label">Gender *</label>
+        <select class="field-select" id="gender">
+          <option value="">Select...</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Prefer not to say">Prefer not to say</option>
+        </select>
+      </div>
+    </div>
+    <div class="field-row full" style="margin-bottom: 0;">
+      <div class="field-group">
+        <label class="field-label">Tobacco use in the last 12 months?</label>
+      </div>
+    </div>
+    <div class="yn-grid" style="margin-top:12px;">
+      <div class="yn-card" id="tob-no" onclick="pickTobacco('No')">
+        <div class="yn-label">No</div>
+        <div class="yn-desc">Non-smoker / non-user</div>
+      </div>
+      <div class="yn-card" id="tob-yes" onclick="pickTobacco('Yes')">
+        <div class="yn-label">Yes</div>
+        <div class="yn-desc">Current or recent user</div>
+      </div>
+    </div>
+    <div class="btn-row">
+      <button class="btn-back" onclick="goToStep(0)">Back</button>
+      <button class="btn-next" onclick="validateStep1()">Continue</button>
+    </div>
+  </div>
+
+  <!-- Step 2: Coverage Amount & Type -->
+  <div class="step" id="step-2">
+    <div class="step-eyebrow">Coverage</div>
+    <h1 class="step-headline">What coverage are you looking for?</h1>
+    <p class="step-sub">Our agents will walk you through every option — there's no wrong answer here.</p>
+
+    <p style="font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:12px;">Coverage Amount</p>
+    <div class="option-list" id="amountList">
+      <div class="option-item" data-value="$100,000" onclick="pickAmount(this)"><div class="option-check"></div>$100,000</div>
+      <div class="option-item" data-value="$250,000" onclick="pickAmount(this)"><div class="option-check"></div>$250,000</div>
+      <div class="option-item" data-value="$500,000" onclick="pickAmount(this)"><div class="option-check"></div>$500,000</div>
+      <div class="option-item" data-value="$1,000,000" onclick="pickAmount(this)"><div class="option-check"></div>$1,000,000</div>
+      <div class="option-item" data-value="Not Sure" onclick="pickAmount(this)"><div class="option-check"></div>Not Sure — Help Me Decide</div>
+    </div>
+
+    <p style="font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:12px;">Coverage Type</p>
+    <div class="option-list" id="typeList">
+      <div class="option-item" data-value="Term Life" onclick="pickType(this)">
+        <div class="option-check"></div>
+        <div><div style="font-weight:600;">Term Life</div><div style="font-size:13px;color:var(--ink-muted);margin-top:2px;">Coverage for a set period — most affordable</div></div>
+      </div>
+      <div class="option-item" data-value="Whole Life" onclick="pickType(this)">
+        <div class="option-check"></div>
+        <div><div style="font-weight:600;">Whole Life</div><div style="font-size:13px;color:var(--ink-muted);margin-top:2px;">Lifetime coverage with a cash value component</div></div>
+      </div>
+      <div class="option-item" data-value="Not Sure" onclick="pickType(this)">
+        <div class="option-check"></div>
+        <div><div style="font-weight:600;">Not Sure — Help Me Decide</div><div style="font-size:13px;color:var(--ink-muted);margin-top:2px;">Our agents will explain what fits your needs</div></div>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn-back" onclick="goToStep(1)">Back</button>
+      <button class="btn-next" id="nextBtn2" onclick="validateStep2()" disabled>Continue</button>
+    </div>
+  </div>
+
+  <!-- Step 3: Contact Info -->
+  <div class="step" id="step-3">
+    <div class="step-eyebrow">Contact</div>
+    <h1 class="step-headline">Last step — how can we reach you?</h1>
+    <p class="step-sub">A local agent will follow up with your personalized life insurance quote.</p>
+    <div class="field-row">
+      <div class="field-group">
+        <label class="field-label">First Name *</label>
+        <input class="field-input" id="firstName" type="text" placeholder="First name" />
+      </div>
+      <div class="field-group">
+        <label class="field-label">Last Name *</label>
+        <input class="field-input" id="lastName" type="text" placeholder="Last name" />
+      </div>
+    </div>
+    <div class="field-row">
+      <div class="field-group">
+        <label class="field-label">Phone Number *</label>
+        <input class="field-input" id="phone" type="tel" placeholder="(317) 555-0100" />
+      </div>
+      <div class="field-group">
+        <label class="field-label">Email Address *</label>
+        <input class="field-input" id="email" type="email" placeholder="you@example.com" />
+      </div>
+    </div>
+    <p style="font-size:12px;color:var(--ink-muted);margin-bottom:20px;margin-top:8px;line-height:1.7;">
+      By submitting, you agree to our <a href="privacy.html" style="color:var(--gold);">Privacy Policy</a> and consent to be contacted by a Killion &amp; Hall agent.
+    </p>
+    <div class="btn-row">
+      <button class="btn-back" onclick="goToStep(2)">Back</button>
+      <button class="btn-submit" onclick="submitQuote()">Get My Life Quote</button>
+    </div>
+  </div>
+
+  <!-- Success -->
+  <div class="success-screen" id="successScreen">
+    <h2 class="success-title">Request Received!</h2>
+    <p class="success-sub">One of our Indianapolis agents will reach out shortly with your personalized life insurance quote. Coverage for the people who count on you.</p>
+    <div class="success-badge">Typically within 1 business day</div>
+    <div style="margin-top:32px; display:flex; flex-direction:column; align-items:center; gap:14px;">
+      <a href="tel:3178881040" style="display:inline-block;background:var(--gold);color:white;padding:15px 36px;border-radius:100px;font-size:15px;font-weight:700;text-decoration:none;">
+        (317) 888-1040
+      </a>
+      <a href="index.html" style="font-size:14px;color:var(--ink-muted);">Back to Homepage</a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <a class="footer-logo" href="index.html">Killion <span>&</span> Hall</a>
+  <div class="footer-nav">
+    <a href="index.html">Home</a>
+    <a href="index.html#services">Services</a>
+    <a href="policyholder.html">For Policyholders</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Service</a>
+  </div>
+  <div class="footer-bottom">© 2024 Killion &amp; Hall Insurance Agency. All rights reserved.</div>
+</footer>
+
+<script>
+const S = { heightFt: '', heightIn: '', weight: '', dob: '', gender: '', tobacco: null, amount: null, type: null };
+const pct = { 0:5, 1:35, 2:65, 3:90 };
+const lblMap = { 0:'lbl-start', 1:'lbl-health', 2:'lbl-coverage', 3:'lbl-contact' };
+const lblOrder = ['lbl-start','lbl-health','lbl-coverage','lbl-contact'];
+let curStep = 0;
+
+function setProgress(n) {
+  document.getElementById('progressFill').style.width = (pct[n]||5) + '%';
+  const active = lblMap[n];
+  lblOrder.forEach((l, i) => {
+    const el = document.getElementById(l);
+    el.classList.remove('active','done');
+    const ai = lblOrder.indexOf(active);
+    if (l === active) el.classList.add('active');
+    else if (i < ai) el.classList.add('done');
+  });
+}
+
+function goToStep(n) {
+  document.getElementById('step-' + curStep).classList.remove('active');
+  curStep = n;
+  document.getElementById('step-' + n).classList.add('active');
+  setProgress(n);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function validateHW() {
+  const ft = document.getElementById('heightFt').value;
+  const wt = document.getElementById('weight').value;
+  if (!ft || !wt) { alert('Please enter your height and weight to continue.'); return; }
+  S.heightFt = ft;
+  S.heightIn = document.getElementById('heightIn').value || '0';
+  S.weight = wt;
+  goToStep(1);
+}
+
+function pickTobacco(v) {
+  S.tobacco = v;
+  document.getElementById('tob-no').classList.toggle('selected', v === 'No');
+  document.getElementById('tob-yes').classList.toggle('selected', v === 'Yes');
+}
+
+function validateStep1() {
+  const dob = document.getElementById('dob').value;
+  const gender = document.getElementById('gender').value;
+  if (!dob || !gender) { alert('Please fill in your date of birth and gender.'); return; }
+  if (!S.tobacco) { alert('Please indicate your tobacco use.'); return; }
+  S.dob = dob;
+  S.gender = gender;
+  goToStep(2);
+}
+
+function pickAmount(el) {
+  document.querySelectorAll('#amountList .option-item').forEach(i => i.classList.remove('selected'));
+  el.classList.add('selected');
+  S.amount = el.dataset.value;
+  checkStep2();
+}
+
+function pickType(el) {
+  document.querySelectorAll('#typeList .option-item').forEach(i => i.classList.remove('selected'));
+  el.classList.add('selected');
+  S.type = el.dataset.value;
+  checkStep2();
+}
+
+function checkStep2() {
+  if (S.amount && S.type) document.getElementById('nextBtn2').removeAttribute('disabled');
+}
+
+function validateStep2() {
+  if (!S.amount || !S.type) { alert('Please select a coverage amount and type.'); return; }
+  goToStep(3);
+}
+
+async function submitQuote() {
+  const fn = document.getElementById('firstName').value.trim();
+  const ln = document.getElementById('lastName').value.trim();
+  const ph = document.getElementById('phone').value.trim();
+  const em = document.getElementById('email').value.trim();
+  if (!fn || !ln || !ph || !em) { alert('Please fill in all required fields.'); return; }
+
+  const body = {
+    _subject: `Life Insurance Quote — ${fn} ${ln}`,
+    Name: `${fn} ${ln}`,
+    Phone: ph,
+    Email: em,
+    Height: `${S.heightFt} ft ${S.heightIn} in`,
+    Weight: `${S.weight} lbs`,
+    'Date of Birth': S.dob,
+    Gender: S.gender,
+    'Tobacco Use': S.tobacco,
+    'Coverage Amount': S.amount,
+    'Coverage Type': S.type,
+    _replyto: em
+  };
+
+  try {
+    const res = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+      method: 'POST', headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+      body: JSON.stringify(body)
+    });
+    if (res.ok) {
+      document.getElementById('progressWrap').style.display = 'none';
+      document.getElementById('step-3').classList.remove('active');
+      document.getElementById('successScreen').classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else { throw new Error(); }
+  } catch { alert('There was an issue submitting. Please call us at (317) 888-1040.'); }
+}
+
+setProgress(0);
+</script>
+</body>
+</html>
