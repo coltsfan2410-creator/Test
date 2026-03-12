@@ -55,6 +55,8 @@
     .nav-phone:hover { color: var(--gold); }
     .nav-cta { background: var(--ink); color: var(--white) !important; padding: 10px 22px; border-radius: 100px; font-size: 13px; font-weight: 600; letter-spacing: 0.02em; text-decoration: none; transition: background 0.2s, transform 0.15s; }
     .nav-cta:hover { background: var(--gold); transform: translateY(-1px); }
+    .nav-policyholder { background: none; border: 1.5px solid var(--border); color: var(--ink-light) !important; padding: 9px 18px; border-radius: 100px; font-size: 13px; font-weight: 600; letter-spacing: 0.02em; text-decoration: none; transition: border-color 0.2s, color 0.2s; }
+    .nav-policyholder:hover { border-color: var(--gold); color: var(--gold) !important; }
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
     .hamburger span { display: block; width: 22px; height: 2px; background: var(--ink); border-radius: 2px; }
 
@@ -98,6 +100,26 @@
     .badge { display: inline-flex; align-items: center; gap: 8px; background: var(--white); border: 1px solid var(--border); border-radius: 100px; padding: 8px 18px; font-size: 12px; font-weight: 500; color: var(--ink-light); }
     .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: #4caf73; }
 
+    /* ─── COVERAGE SELECTOR ─── */
+    .coverage-selector { margin-top: 52px; }
+    .coverage-label { font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 14px; }
+    .coverage-cards { display: flex; gap: 12px; flex-wrap: wrap; }
+    .cov-card {
+      display: flex; align-items: center; gap: 14px;
+      background: var(--white); border: 1.5px solid var(--border);
+      border-radius: 16px; padding: 16px 20px;
+      text-decoration: none; min-width: 180px;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+      cursor: pointer;
+    }
+    .cov-card:hover { border-color: var(--gold); box-shadow: 0 8px 24px rgba(0,0,0,0.08); transform: translateY(-2px); }
+    .cov-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .cov-text { flex: 1; }
+    .cov-text strong { display: block; font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 2px; }
+    .cov-text span { font-size: 12px; color: var(--ink-muted); }
+    .cov-arrow { font-size: 16px; color: var(--ink-muted); transition: color 0.2s, transform 0.2s; }
+    .cov-card:hover .cov-arrow { color: var(--gold); transform: translateX(3px); }
+
     /* ─── STATS STRIP ─── */
     .stats-strip {
       background: var(--ink); color: var(--white); padding: 56px 48px;
@@ -111,10 +133,10 @@
 
     /* ─── PHOTO GALLERY ─── */
     .photo-section { padding: 0; overflow: hidden; }
-    .photo-grid {
+    .photo-grid-4 {
       display: grid;
-      grid-template-columns: 1.4fr 1fr 1fr;
-      grid-template-rows: 320px 320px;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      grid-template-rows: 300px 300px;
       gap: 4px;
     }
     .photo-item {
@@ -126,7 +148,7 @@
       display: block;
     }
     .photo-item:hover img { transform: scale(1.05); }
-    .photo-item.tall { grid-row: span 2; }
+    .photo-item.tall2 { grid-row: span 2; }
     .photo-overlay {
       position: absolute; bottom: 0; left: 0; right: 0;
       padding: 20px 24px;
@@ -220,6 +242,43 @@
     .carriers-list { display: flex; flex-wrap: wrap; gap: 8px; }
     .carrier-tag { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 6px 14px; font-size: 12px; font-weight: 500; color: var(--ink-light); }
 
+    /* ─── QUOTE FORM ─── */
+    .quote-section { background: var(--cream); }
+    .quote-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .quote-perks { display: flex; flex-direction: column; gap: 12px; margin-top: 32px; }
+    .quote-perk { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--ink-light); font-weight: 500; }
+    .quote-perk svg { color: var(--gold); flex-shrink: 0; }
+    .quote-card { background: var(--white); border-radius: 24px; padding: 40px; border: 1px solid var(--border); box-shadow: 0 8px 32px rgba(0,0,0,0.06); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 20px; }
+    .form-group label { font-size: 13px; font-weight: 600; color: var(--ink); letter-spacing: 0.01em; }
+    .form-group input, .form-group select, .form-group textarea {
+      padding: 12px 16px; border: 1.5px solid var(--border); border-radius: 10px;
+      font-size: 14px; font-family: var(--sans); color: var(--ink);
+      background: var(--white); outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      border-color: var(--gold); box-shadow: 0 0 0 3px rgba(184,147,90,0.12);
+    }
+    .form-group input::placeholder, .form-group textarea::placeholder { color: #bbb; }
+    .form-group select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; cursor: pointer; }
+    .form-group textarea { resize: none; line-height: 1.6; }
+    .form-submit {
+      width: 100%; padding: 15px 24px; background: var(--ink); color: var(--white);
+      border: none; border-radius: 100px; font-size: 15px; font-weight: 600;
+      font-family: var(--sans); cursor: pointer; display: flex; align-items: center;
+      justify-content: center; gap: 10px; transition: background 0.2s, transform 0.15s;
+      margin-bottom: 16px;
+    }
+    .form-submit:hover { background: var(--gold); transform: translateY(-1px); }
+    .form-note { font-size: 12px; color: var(--ink-muted); text-align: center; }
+    .form-success { text-align: center; padding: 24px 0; }
+    .success-icon { width: 64px; height: 64px; border-radius: 50%; background: #edf7f0; color: #3a9e5f; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; }
+    .form-success h3 { font-family: var(--serif); font-size: 24px; font-weight: 500; color: var(--ink); margin-bottom: 12px; }
+    .form-success p { font-size: 14px; color: var(--ink-light); line-height: 1.7; }
+    .form-success a { color: var(--gold); text-decoration: none; font-weight: 600; }
+
     /* ─── TESTIMONIALS ─── */
     .social-section { background: var(--cream); padding: 80px 48px; text-align: center; }
     .awards-row { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; margin-top: 48px; }
@@ -299,9 +358,10 @@
       .why-grid, .process-grid, .location-inner { grid-template-columns: 1fr; gap: 40px; }
       .services-grid { grid-template-columns: 1fr; }
       .services-header { flex-direction: column; align-items: flex-start; gap: 16px; }
-      .photo-grid { grid-template-columns: 1fr 1fr; grid-template-rows: repeat(3, 220px); }
-      .photo-item.tall { grid-row: span 1; }
-      .community-photos { grid-template-columns: repeat(2, 1fr); height: 480px; }
+      .photo-grid-4 { grid-template-columns: 1fr 1fr; grid-template-rows: repeat(3, 220px); }
+      .photo-item.tall2 { grid-row: span 1; }
+      .quote-inner { grid-template-columns: 1fr; gap: 40px; }
+      .form-row { grid-template-columns: 1fr; }
       .footer-top { flex-direction: column; gap: 40px; }
       .footer-cols { flex-wrap: wrap; gap: 32px; }
       .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
@@ -325,7 +385,8 @@
   </ul>
   <div class="nav-right">
     <a href="tel:3178881040" class="nav-phone">(317) 888-1040</a>
-    <a href="tel:3178881040" class="nav-cta">Get a Quote</a>
+    <a href="policyholder.html" class="nav-policyholder">For Policyholders</a>
+    <a href="#quote" class="nav-cta">Get a Quote</a>
   </div>
   <button class="hamburger" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -344,6 +405,55 @@
     </a>
     <a href="#services" class="btn-ghost">View Our Services</a>
   </div>
+  <!-- COVERAGE SELECTOR -->
+  <div class="coverage-selector fade-up">
+    <p class="coverage-label">What would you like to insure?</p>
+    <div class="coverage-cards">
+      <a href="quote-home-auto.html" class="cov-card">
+        <div class="cov-icon" style="background:#eef4ff;">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none"><path d="M3 12.5L13 4l10 8.5V22a1 1 0 01-1 1H4a1 1 0 01-1-1V12.5z" stroke="#2c6fd1" stroke-width="1.6"/><path d="M9.5 23V16h7v7" stroke="#2c6fd1" stroke-width="1.6"/><path d="M7 23V14.5" stroke="none"/><rect x="8" y="6" width="4" height="3" rx=".5" fill="#2c6fd1" opacity=".3"/>
+          <path d="M17 18.5a2 2 0 100 4 2 2 0 000-4z" fill="none" stroke="#2c6fd1" stroke-width="1.2"/>
+          <path d="M20 16l2-2" stroke="#2c6fd1" stroke-width="1.2" stroke-linecap="round"/></svg>
+        </div>
+        <div class="cov-text">
+          <strong>Home &amp; Auto</strong>
+          <span>Bundle &amp; save</span>
+        </div>
+        <div class="cov-arrow">→</div>
+      </a>
+      <a href="quote-auto.html" class="cov-card">
+        <div class="cov-icon" style="background:#fff4ee;">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none"><path d="M4 16H2v-2l2.5-6h15l2.5 6v2h-2" stroke="#d16b2c" stroke-width="1.6" stroke-linecap="round"/><circle cx="7.5" cy="17.5" r="2.5" stroke="#d16b2c" stroke-width="1.6"/><circle cx="18.5" cy="17.5" r="2.5" stroke="#d16b2c" stroke-width="1.6"/><path d="M10 17.5h5" stroke="#d16b2c" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </div>
+        <div class="cov-text">
+          <strong>Auto</strong>
+          <span>Cars, trucks &amp; more</span>
+        </div>
+        <div class="cov-arrow">→</div>
+      </a>
+      <a href="quote-home.html" class="cov-card">
+        <div class="cov-icon" style="background:#edfaf3;">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none"><path d="M3 12.5L13 4l10 8.5V22a1 1 0 01-1 1H4a1 1 0 01-1-1V12.5z" stroke="#2ca86b" stroke-width="1.6"/><path d="M9.5 23V16h7v7" stroke="#2ca86b" stroke-width="1.6"/></svg>
+        </div>
+        <div class="cov-text">
+          <strong>Home</strong>
+          <span>Owners &amp; renters</span>
+        </div>
+        <div class="cov-arrow">→</div>
+      </a>
+      <a href="quote-life.html" class="cov-card">
+        <div class="cov-icon" style="background:#fdf0f0;">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none"><path d="M13 22s-9-5.5-9-12a6 6 0 0112 0 6 6 0 0112 0c0 6.5-9 12-9 12z" stroke="#d12c2c" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="cov-text">
+          <strong>Life</strong>
+          <span>Term &amp; whole life</span>
+        </div>
+        <div class="cov-arrow">→</div>
+      </a>
+    </div>
+  </div>
+
   <div class="hero-badges fade-up">
     <span class="badge"><span class="badge-dot"></span> Nextdoor Favorite 2022 &amp; 2023</span>
     <span class="badge">
@@ -377,51 +487,6 @@
   </div>
 </div>
 
-<!-- ═══ HERO PHOTO GRID (your uploaded photos) ═══ -->
-<div class="photo-section">
-  <div class="photo-grid">
-    <!-- TALL LEFT — Monon Trail photo -->
-    <div class="photo-item tall">
-      <img
-        src="Monon.jpg"
-        alt="Monon Trail Indianapolis"
-      />
-      <div class="photo-overlay">Indianapolis, Indiana</div>
-    </div>
-    <!-- TOP RIGHT 1 — nighttime photo -->
-    <div class="photo-item">
-      <img
-        src="photo-night.png"
-        alt="Indianapolis city at night"
-      />
-      <div class="photo-overlay">Our City</div>
-    </div>
-    <!-- TOP RIGHT 2 — Indianapolis scenery -->
-    <div class="photo-item">
-      <img
-        src="Indianapolis-scenery.jpg"
-        alt="Indianapolis scenery"
-      />
-      <div class="photo-overlay">Homes We Protect</div>
-    </div>
-    <!-- BOTTOM RIGHT 1 — Central Indy -->
-    <div class="photo-item">
-      <img
-        src="central%20indy.jpg"
-        alt="Central Indianapolis"
-      />
-      <div class="photo-overlay">Central Indiana</div>
-    </div>
-    <!-- BOTTOM RIGHT 2 — repeat Monon for now -->
-    <div class="photo-item">
-      <img
-        src="Monon.jpg"
-        alt="Indianapolis neighborhood"
-      />
-      <div class="photo-overlay">Neighborhoods We Serve</div>
-    </div>
-  </div>
-</div>
 
 <!-- ═══ WHY US ═══ -->
 <section class="section why-section" id="about">
@@ -537,48 +602,6 @@
   </div>
 </section>
 
-<!-- ═══ COMMUNITY PHOTO SECTION ═══ -->
-<section class="community-section" id="community">
-  <div class="community-inner">
-    <div class="section-label">Our Community</div>
-    <h2 class="section-title">Proud to call Indianapolis home.</h2>
-    <p class="community-desc">We're not just an insurance agency — we're your neighbors. For over 40 years, we've been part of this community, protecting the people and places that make Central Indiana special.</p>
-  </div>
-  <div class="community-photos">
-    <!-- Photo 1: Monon Trail -->
-    <div class="comm-photo">
-      <img
-        src="Monon.jpg"
-        alt="Monon Trail Indianapolis"
-      />
-      <div class="comm-caption">Indianapolis</div>
-    </div>
-    <!-- Photo 2: Nighttime -->
-    <div class="comm-photo">
-      <img
-        src="photo-night.png"
-        alt="Indianapolis nightlife"
-      />
-      <div class="comm-caption">Our Neighborhood</div>
-    </div>
-    <!-- Photo 3: Indianapolis scenery -->
-    <div class="comm-photo">
-      <img
-        src="Indianapolis-scenery.jpg"
-        alt="Indianapolis scenery"
-      />
-      <div class="comm-caption">Central Indiana</div>
-    </div>
-    <!-- Photo 4: Central Indy -->
-    <div class="comm-photo">
-      <img
-        src="central%20indy.jpg"
-        alt="Central Indianapolis"
-      />
-      <div class="comm-caption">Neighborhoods We Serve</div>
-    </div>
-  </div>
-</section>
 
 <!-- ═══ PROCESS ═══ -->
 <section class="section process-section" id="process">
@@ -637,43 +660,163 @@
   </div>
 </section>
 
+<!-- ═══ QUOTE FORM ═══ -->
+<section class="section quote-section" id="quote">
+  <div class="quote-inner">
+    <div class="quote-left">
+      <div class="section-label">Request a Quote</div>
+      <h2 class="section-title">Let's find you the right coverage.</h2>
+      <p class="section-desc">Leave your name and number and one of our licensed agents will call you back — no pressure, no obligation.</p>
+      <div class="quote-perks">
+        <div class="quote-perk">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8l4 4 8-8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Free, no-obligation consultation
+        </div>
+        <div class="quote-perk">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8l4 4 8-8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          We shop 10+ carriers for you
+        </div>
+        <div class="quote-perk">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8l4 4 8-8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Local Indianapolis agents, not a call center
+        </div>
+      </div>
+    </div>
+    <div class="quote-right">
+      <div class="quote-card">
+        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" id="quoteForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+              <input type="text" id="firstName" name="firstName" placeholder="John" required />
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <input type="text" id="lastName" name="lastName" placeholder="Smith" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="(317) 555-0100" required />
+          </div>
+          <div class="form-group">
+            <label for="insurance">Type of Insurance</label>
+            <select id="insurance" name="insurance">
+              <option value="" disabled selected>Select one...</option>
+              <option value="Auto">Auto Insurance</option>
+              <option value="Home">Home Insurance</option>
+              <option value="Business">Business Insurance</option>
+              <option value="Life">Life Insurance</option>
+              <option value="Boat">Boat / Watercraft</option>
+              <option value="Condo/Renters">Condo / Renters</option>
+              <option value="Multiple">Multiple / Not Sure</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Anything else? <span style="font-weight:400; color:var(--ink-muted);">(optional)</span></label>
+            <textarea id="message" name="message" placeholder="Best time to call, current provider, etc." rows="3"></textarea>
+          </div>
+          <button type="submit" class="form-submit">
+            Send My Info
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <p class="form-note">We'll call you back within one business day.</p>
+        </form>
+        <div class="form-success" id="formSuccess" style="display:none;">
+          <div class="success-icon">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M6 16l7 7 13-13" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>We got your info!</h3>
+          <p>One of our agents will call you back within one business day. You can also reach us directly at <a href="tel:3178881040">(317) 888-1040</a>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ═══ TESTIMONIALS ═══ -->
 <section class="social-section">
   <div class="section-label" style="display:inline-block;">What Our Clients Say</div>
   <h2 class="section-title" style="max-width:480px; margin:12px auto 0; font-family:var(--serif); font-size:clamp(28px,3.5vw,44px); font-weight:500; letter-spacing:-0.02em;">Indianapolis neighbors trust us.</h2>
-  <div class="awards-row">
-    <div class="award-card">
-      <div class="award-stars">★★★★★</div>
-      <p>"Killion &amp; Hall made the whole process incredibly easy. They found me a better rate than I had before and explained everything in plain English."</p>
-      <div class="award-author">Indianapolis Homeowner</div>
-      <div class="award-platform">
-        <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="4" stroke="currentColor" stroke-width="1.2"/></svg>
-        Verified Client
-      </div>
-    </div>
-    <div class="award-card">
-      <div class="award-stars">★★★★★</div>
-      <p>"Mike and his team have been handling our business insurance for years. They're always available and genuinely care about finding the right coverage."</p>
-      <div class="award-author">Local Business Owner</div>
-      <div class="award-platform">
-        <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="4" stroke="currentColor" stroke-width="1.2"/></svg>
-        Verified Client
-      </div>
-    </div>
-    <div class="award-card">
-      <div class="award-stars">★★★★★</div>
-      <p>"I've been with them for over a decade. Every time I call, they pick up and they know who I am. That kind of personal service is rare today."</p>
-      <div class="award-author">Long-Time Madison Ave Client</div>
-      <div class="award-platform">
-        <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="4" stroke="currentColor" stroke-width="1.2"/></svg>
-        Verified Client
+
+  <!-- Google Rating Badge -->
+  <div style="margin-top:32px; display:inline-flex; align-items:center; gap:16px; background:var(--white); border:1px solid var(--border); border-radius:16px; padding:16px 28px; box-shadow:0 2px 12px rgba(0,0,0,0.06);">
+    <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+      <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+      <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+      <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+    </svg>
+    <div style="text-align:left;">
+      <div style="font-size:13px; font-weight:600; color:var(--ink); margin-bottom:4px;">Rated 4.8 on Google</div>
+      <div style="display:flex; align-items:center; gap:4px;">
+        <span style="color:#FBBC05; font-size:16px; letter-spacing:1px;">★★★★★</span>
+        <span style="font-size:12px; color:var(--ink-muted);">Google Reviews</span>
       </div>
     </div>
   </div>
-  <div style="margin-top: 48px; display:inline-flex; align-items:center; gap:12px; background:var(--white); border:1px solid var(--border); border-radius:100px; padding:12px 24px;">
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1.5l1.8 3.7 4.1.6-3 2.9.7 4.1L8 10.7l-3.6 1.9.7-4.1-3-2.9 4.1-.6L8 1.5z" fill="#b8935a"/></svg>
-    <span style="font-size:13px; font-weight:600; color:var(--ink);">Nextdoor Neighborhood Favorite</span>
-    <span style="font-size:13px; color:var(--ink-muted);">2022 &amp; 2023</span>
+
+  <!-- Review Cards -->
+  <div class="awards-row">
+    <div class="award-card">
+      <div class="award-stars" style="color:#FBBC05;">★★★★★</div>
+      <p>"Aaron took the time to explain a few options that Erie offers to achieve a lower rate. He ended up saving me so much more than I would have imagined. Aaron was extremely kind and patient and answered all of my questions."</p>
+      <div class="award-author">Lois B.</div>
+      <div class="award-platform">
+        <svg width="12" height="12" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        Google Review
+      </div>
+    </div>
+    <div class="award-card">
+      <div class="award-stars" style="color:#FBBC05;">★★★★★</div>
+      <p>"Mike customized both the home and auto policies. My liability limits were doubled or tripled in most areas — AND we saved over $300.00 annually. If you are looking for complete coverage with great customer service, call this agency!"</p>
+      <div class="award-author">Carole M.</div>
+      <div class="award-platform">
+        <svg width="12" height="12" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        Google Review
+      </div>
+    </div>
+    <div class="award-card">
+      <div class="award-stars" style="color:#FBBC05;">★★★★★</div>
+      <p>"The staff is extremely professional and helpful. I've been with this company since it was Hall Insurance in 1985. I've remained because of the people and their dedication."</p>
+      <div class="award-author">Tom M.</div>
+      <div class="award-platform">
+        <svg width="12" height="12" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        Google Review
+      </div>
+    </div>
+    <div class="award-card">
+      <div class="award-stars" style="color:#FBBC05;">★★★★★</div>
+      <p>"They have a great staff that go above and beyond to help you. We have been with them for over 25 years. They have ALWAYS been helpful."</p>
+      <div class="award-author">Mary B.</div>
+      <div class="award-platform">
+        <svg width="12" height="12" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        Google Review
+      </div>
+    </div>
+  </div>
+
+  <!-- Mini quotes row -->
+  <div style="margin-top:32px; display:flex; gap:24px; justify-content:center; flex-wrap:wrap;">
+    <div style="background:var(--white); border:1px solid var(--border); border-radius:100px; padding:10px 22px; display:inline-flex; align-items:center; gap:10px;">
+      <span style="color:#FBBC05; font-size:13px;">★★★★★</span>
+      <span style="font-size:13px; color:var(--ink-light); font-style:italic;">"Great group of people, have been going there for 19 years."</span>
+      <span style="font-size:12px; font-weight:600; color:var(--ink-muted);">— Jenny H.</span>
+    </div>
+    <div style="background:var(--white); border:1px solid var(--border); border-radius:100px; padding:10px 22px; display:inline-flex; align-items:center; gap:10px;">
+      <span style="color:#FBBC05; font-size:13px;">★★★★★</span>
+      <span style="font-size:13px; color:var(--ink-light); font-style:italic;">"Great people, great service!"</span>
+      <span style="font-size:12px; font-weight:600; color:var(--ink-muted);">— Juanita F.</span>
+    </div>
+  </div>
+
+  <!-- Badges row -->
+  <div style="margin-top:40px; display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+    <div style="display:inline-flex; align-items:center; gap:12px; background:var(--white); border:1px solid var(--border); border-radius:100px; padding:12px 24px;">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1.5l1.8 3.7 4.1.6-3 2.9.7 4.1L8 10.7l-3.6 1.9.7-4.1-3-2.9 4.1-.6L8 1.5z" fill="#b8935a"/></svg>
+      <span style="font-size:13px; font-weight:600; color:var(--ink);">Nextdoor Neighborhood Favorite</span>
+      <span style="font-size:13px; color:var(--ink-muted);">2022 &amp; 2023</span>
+    </div>
   </div>
 </section>
 
@@ -805,6 +948,33 @@
 </footer>
 
 <script>
+  // Quote form submission
+  const form = document.getElementById('quoteForm');
+  if (form) {
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = form.querySelector('.form-submit');
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST', body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          form.style.display = 'none';
+          document.getElementById('formSuccess').style.display = 'block';
+        } else {
+          btn.textContent = 'Something went wrong — try again';
+          btn.disabled = false;
+        }
+      } catch {
+        btn.textContent = 'Something went wrong — try again';
+        btn.disabled = false;
+      }
+    });
+  }
+
   // Nav scroll effect
   const nav = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
