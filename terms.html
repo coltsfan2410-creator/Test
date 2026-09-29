@@ -6,14 +6,14 @@
   <title>Terms & Conditions — Killion & Hall Insurance</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --ink: #0f0f0f; --ink-light: #4a4a4a; --ink-muted: #888;
-      --cream: #f9f7f4; --white: #ffffff; --gold: #b8935a; --gold-light: #d4ab72;
-      --blue-deep: #1a2e4a; --border: #e8e4de;
-      --sans: 'Inter', system-ui, sans-serif; --serif: 'Playfair Display', Georgia, serif;
+      --ink: #1a1d17; --ink-light: #57594f; --ink-muted: #8c8d80;
+      --cream: #f6f1e5; --white: #fffdf8; --gold: #5b83ad; --gold-light: #9dbedd;
+      --blue-deep: #0d3868; --border: #e6ddc8;
+      --sans: 'Inter', system-ui, sans-serif; --serif: 'Inter', system-ui, sans-serif;
     }
     html { scroll-behavior: smooth; }
     body { font-family: var(--sans); background: var(--white); color: var(--ink); line-height: 1.6; -webkit-font-smoothing: antialiased; }
@@ -22,12 +22,14 @@
       position: sticky; top: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
       padding: 0 48px; height: 72px;
-      background: rgba(255,255,255,0.97);
+      background: rgba(246,241,229,0.94);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
       box-shadow: 0 1px 12px rgba(0,0,0,0.05);
     }
-    .nav-logo { font-family: var(--serif); font-size: 18px; font-weight: 500; color: var(--ink); text-decoration: none; }
-    .nav-logo span { color: var(--gold); }
+    .nav-logo { display: flex; align-items: center; text-decoration: none; }
+    .nav-logo img { height: 40px; width: auto; display: block; }
     .nav-right { display: flex; align-items: center; gap: 20px; }
     .nav-phone { font-size: 13px; font-weight: 600; color: var(--ink-light); text-decoration: none; }
     .nav-phone:hover { color: var(--gold); }
@@ -71,8 +73,8 @@
     .contact-card a { color: var(--gold); text-decoration: none; font-weight: 500; }
 
     footer { background: var(--ink); color: rgba(255,255,255,0.55); padding: 40px 48px 28px; }
-    .footer-logo { font-family: var(--serif); font-size: 18px; font-weight: 500; color: var(--white); text-decoration: none; display: block; margin-bottom: 12px; }
-    .footer-logo span { color: var(--gold); }
+    .footer-logo { text-decoration: none; display: block; margin-bottom: 12px; }
+    .footer-logo img { height: 36px; width: auto; display: block; }
     .footer-nav { display: flex; gap: 28px; margin-bottom: 24px; flex-wrap: wrap; }
     .footer-nav a { font-size: 13px; color: rgba(255,255,255,0.6); text-decoration: none; }
     .footer-nav a:hover { color: var(--white); }
@@ -93,7 +95,7 @@
 <body>
 
 <nav>
-  <a class="nav-logo" href="index.html">Killion <span>&</span> Hall</a>
+  <a class="nav-logo" href="index.html"><img src="logo-navy.png" alt="Killion & Hall Insurance Agency"></a>
   <div class="nav-right">
     <a href="tel:3178881040" class="nav-phone">(317) 888-1040</a>
     <a href="tel:3178881040" class="nav-cta">Get a Quote</a>
@@ -187,7 +189,7 @@
       <h4>Killion &amp; Hall Insurance Agency — Madison Avenue Office</h4>
       <p><strong>Address:</strong> 7610 Madison Avenue, Indianapolis, IN 46227</p>
       <p><strong>Phone:</strong> <a href="tel:3178881040">(317) 888-1040</a></p>
-      <p><strong>Email:</strong> <a href="mailto:info@killionhall.com">info@killionhall.com</a></p>
+      <p><strong>Email:</strong> <a href="mailto:mike@killionhall.com">mike@killionhall.com</a></p>
       <p><strong>Office Hours:</strong> Monday–Thursday 8:30 AM–5:00 PM, Friday 8:30 AM–4:00 PM</p>
     </div>
   </div>
@@ -195,7 +197,7 @@
 </div>
 
 <footer>
-  <a class="footer-logo" href="index.html">Killion <span>&</span> Hall</a>
+  <a class="footer-logo" href="index.html"><img src="logo-white.png" alt="Killion & Hall Insurance Agency"></a>
   <div class="footer-nav">
     <a href="index.html">Home</a>
     <a href="index.html#services">Services</a>
