@@ -6,22 +6,22 @@
   <title>Policyholder Center — Killion & Hall Insurance</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --ink: #0f0f0f; --ink-light: #4a4a4a; --ink-muted: #888;
-      --cream: #f9f7f4; --white: #ffffff; --gold: #b8935a; --gold-light: #d4ab72;
-      --blue-deep: #1a2e4a; --blue-mid: #2c4a6e; --border: #e8e4de; --green: #2d7a4f;
-      --sans: 'Inter', system-ui, sans-serif; --serif: 'Playfair Display', Georgia, serif;
+      --ink: #1a1d17; --ink-light: #57594f; --ink-muted: #8c8d80;
+      --cream: #f6f1e5; --white: #fffdf8; --gold: #5b83ad; --gold-light: #9dbedd;
+      --blue-deep: #0d3868; --blue-mid: #173f68; --border: #e6ddc8; --green: #2d7a4f;
+      --sans: 'Inter', system-ui, sans-serif; --serif: 'Inter', system-ui, sans-serif;
     }
     html { scroll-behavior: smooth; }
     body { font-family: var(--sans); background: var(--cream); color: var(--ink); line-height: 1.6; -webkit-font-smoothing: antialiased; }
 
     /* Nav */
-    nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 72px; background: rgba(255,255,255,0.97); border-bottom: 1px solid var(--border); box-shadow: 0 1px 12px rgba(0,0,0,0.05); }
-    .nav-logo { font-family: var(--serif); font-size: 18px; font-weight: 500; color: var(--ink); text-decoration: none; }
-    .nav-logo span { color: var(--gold); }
+    nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 72px; background: rgba(246,241,229,0.94); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); box-shadow: 0 1px 12px rgba(0,0,0,0.05); }
+    .nav-logo { display: flex; align-items: center; text-decoration: none; }
+    .nav-logo img { height: 40px; width: auto; display: block; }
     .nav-right { display: flex; align-items: center; gap: 16px; }
     .nav-phone { font-size: 13px; font-weight: 600; color: var(--ink-light); text-decoration: none; }
     .nav-phone:hover { color: var(--gold); }
@@ -75,8 +75,8 @@
     .field-input::placeholder, .field-textarea::placeholder { color: var(--ink-muted); }
     .field-textarea { resize: vertical; min-height: 100px; }
     .field-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .btn-submit { background: var(--gold); color: var(--white); border: none; border-radius: 100px; padding: 15px 36px; font-size: 15px; font-weight: 700; cursor: pointer; font-family: var(--sans); transition: background 0.2s; width: 100%; box-shadow: 0 4px 20px rgba(184,147,90,0.3); margin-top: 4px; }
-    .btn-submit:hover { background: #a07840; }
+    .btn-submit { background: var(--gold); color: var(--white); border: none; border-radius: 100px; padding: 15px 36px; font-size: 15px; font-weight: 700; cursor: pointer; font-family: var(--sans); transition: background 0.2s; width: 100%; box-shadow: 0 4px 20px rgba(91,131,173,0.3); margin-top: 4px; }
+    .btn-submit:hover { background: #163f68; }
     .form-note { font-size: 12px; color: var(--ink-muted); text-align: center; margin-top: 4px; line-height: 1.6; }
 
     .form-success { display: none; background: #f0faf4; border: 1.5px solid #a3d4b8; border-radius: 16px; padding: 32px 24px; text-align: center; }
@@ -97,8 +97,8 @@
     .resource-action:hover { color: var(--ink); }
 
     footer { background: var(--ink); color: rgba(255,255,255,0.55); padding: 32px 48px 24px; }
-    .footer-logo { font-family: var(--serif); font-size: 18px; font-weight: 500; color: var(--white); text-decoration: none; display: block; margin-bottom: 12px; }
-    .footer-logo span { color: var(--gold); }
+    .footer-logo { text-decoration: none; display: block; margin-bottom: 12px; }
+    .footer-logo img { height: 36px; width: auto; display: block; }
     .footer-nav { display: flex; gap: 28px; margin-bottom: 20px; flex-wrap: wrap; }
     .footer-nav a { font-size: 13px; color: rgba(255,255,255,0.6); text-decoration: none; }
     .footer-nav a:hover { color: var(--white); }
@@ -119,7 +119,7 @@
 <body>
 
 <nav>
-  <a class="nav-logo" href="index.html">Killion <span>&</span> Hall</a>
+  <a class="nav-logo" href="index.html"><img src="logo-navy.png" alt="Killion & Hall Insurance Agency"></a>
   <div class="nav-right">
     <a href="tel:3178881040" class="nav-phone">(317) 888-1040</a>
     <a href="policyholder.html" class="nav-policyholder">For Policyholders</a>
@@ -318,7 +318,7 @@
 </section>
 
 <footer>
-  <a class="footer-logo" href="index.html">Killion <span>&</span> Hall</a>
+  <a class="footer-logo" href="index.html"><img src="logo-white.png" alt="Killion & Hall Insurance Agency"></a>
   <div class="footer-nav">
     <a href="index.html">Home</a>
     <a href="index.html#services">Services</a>
@@ -349,7 +349,7 @@ async function submitPolicyholder() {
   };
 
   try {
-    const res = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+    const res = await fetch('https://formspree.io/f/myezoprj', {
       method: 'POST', headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
       body: JSON.stringify(body)
     });
