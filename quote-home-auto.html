@@ -6,21 +6,21 @@
   <title>Home & Auto Bundle Quote — Killion & Hall Insurance</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --ink: #0f0f0f; --ink-light: #4a4a4a; --ink-muted: #888;
-      --cream: #f9f7f4; --white: #ffffff; --gold: #b8935a; --gold-light: #d4ab72;
-      --blue-deep: #1a2e4a; --border: #e8e4de; --green: #2d7a4f;
-      --sans: 'Inter', system-ui, sans-serif; --serif: 'Playfair Display', Georgia, serif;
+      --ink: #1a1d17; --ink-light: #57594f; --ink-muted: #8c8d80;
+      --cream: #f6f1e5; --white: #fffdf8; --gold: #5b83ad; --gold-light: #9dbedd;
+      --blue-deep: #0d3868; --border: #e6ddc8; --green: #2d7a4f;
+      --sans: 'Inter', system-ui, sans-serif; --serif: 'Inter', system-ui, sans-serif;
     }
     html { scroll-behavior: smooth; }
     body { font-family: var(--sans); background: var(--cream); color: var(--ink); line-height: 1.6; -webkit-font-smoothing: antialiased; min-height: 100vh; }
 
-    nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 72px; background: rgba(255,255,255,0.97); border-bottom: 1px solid var(--border); box-shadow: 0 1px 12px rgba(0,0,0,0.05); }
-    .nav-logo { font-family: var(--serif); font-size: 18px; font-weight: 500; color: var(--ink); text-decoration: none; }
-    .nav-logo span { color: var(--gold); }
+    nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 72px; background: rgba(246,241,229,0.94); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); box-shadow: 0 1px 12px rgba(0,0,0,0.05); }
+    .nav-logo { display: flex; align-items: center; text-decoration: none; }
+    .nav-logo img { height: 40px; width: auto; display: block; }
     .nav-right { display: flex; align-items: center; gap: 16px; }
     .nav-phone { font-size: 13px; font-weight: 600; color: var(--ink-light); text-decoration: none; }
     .nav-phone:hover { color: var(--gold); }
@@ -29,7 +29,7 @@
 
     .wizard-shell { max-width: 700px; margin: 0 auto; padding: 48px 24px 96px; }
 
-    .bundle-banner { background: linear-gradient(135deg, var(--blue-deep), #243d5c); border-radius: 14px; padding: 20px 24px; margin-bottom: 36px; }
+    .bundle-banner { background: linear-gradient(135deg, var(--blue-deep), #173f68); border-radius: 14px; padding: 20px 24px; margin-bottom: 36px; }
     .bundle-banner p { font-size: 14px; color: rgba(255,255,255,0.85); line-height: 1.7; }
     .bundle-banner strong { color: var(--gold-light); }
 
@@ -52,14 +52,14 @@
     .yn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 32px; }
     .yn-card { background: var(--white); border: 2px solid var(--border); border-radius: 20px; padding: 32px 24px; text-align: center; cursor: pointer; transition: border-color 0.2s, transform 0.15s, box-shadow 0.2s; user-select: none; }
     .yn-card:hover { border-color: var(--gold); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
-    .yn-card.selected { border-color: var(--gold); background: #fdf8f2; }
+    .yn-card.selected { border-color: var(--gold); background: #eef4fb; }
     .yn-label { font-size: 22px; font-weight: 700; color: var(--ink); }
     .yn-desc { font-size: 13px; color: var(--ink-muted); margin-top: 6px; }
 
     .option-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
     .option-item { background: var(--white); border: 2px solid var(--border); border-radius: 14px; padding: 18px 22px; cursor: pointer; display: flex; align-items: center; gap: 14px; font-size: 15px; font-weight: 500; color: var(--ink); transition: border-color 0.2s, box-shadow 0.15s; }
     .option-item:hover { border-color: var(--gold); box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
-    .option-item.selected { border-color: var(--gold); background: #fdf8f2; }
+    .option-item.selected { border-color: var(--gold); background: #eef4fb; }
     .option-check { width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.2s; }
     .option-item.selected .option-check { border-color: var(--gold); background: var(--gold); }
     .option-item.selected .option-check::after { content: '\2713'; color: white; font-size: 12px; font-weight: 700; }
@@ -83,7 +83,7 @@
     .remove-btn { background: none; border: none; color: var(--ink-muted); cursor: pointer; font-size: 13px; padding: 4px 10px; border-radius: 6px; transition: color 0.2s, background 0.2s; }
     .remove-btn:hover { color: #c0392b; background: #fdf0f0; }
     .add-btn { display: flex; align-items: center; gap: 8px; background: none; border: 2px dashed var(--border); border-radius: 12px; padding: 14px 20px; width: 100%; cursor: pointer; font-size: 14px; font-weight: 600; color: var(--ink-light); font-family: var(--sans); transition: border-color 0.2s, color 0.2s, background 0.2s; margin-bottom: 24px; }
-    .add-btn:hover { border-color: var(--gold); color: var(--gold); background: #fdf8f2; }
+    .add-btn:hover { border-color: var(--gold); color: var(--gold); background: #eef4fb; }
 
     .btn-row { display: flex; gap: 12px; align-items: center; margin-top: 8px; }
     .btn-back { background: none; border: 1.5px solid var(--border); border-radius: 100px; padding: 14px 28px; font-size: 15px; font-weight: 600; color: var(--ink-light); cursor: pointer; font-family: var(--sans); transition: all 0.2s; }
@@ -91,8 +91,8 @@
     .btn-next { background: var(--ink); color: var(--white); border: none; border-radius: 100px; padding: 14px 36px; font-size: 15px; font-weight: 600; cursor: pointer; font-family: var(--sans); transition: background 0.2s; flex: 1; }
     .btn-next:hover { background: var(--gold); }
     .btn-next:disabled { background: var(--border); color: var(--ink-muted); cursor: not-allowed; }
-    .btn-submit { background: var(--gold); color: var(--white); border: none; border-radius: 100px; padding: 16px 40px; font-size: 16px; font-weight: 700; cursor: pointer; font-family: var(--sans); transition: background 0.2s; flex: 1; box-shadow: 0 4px 20px rgba(184,147,90,0.35); }
-    .btn-submit:hover { background: #a07840; }
+    .btn-submit { background: var(--gold); color: var(--white); border: none; border-radius: 100px; padding: 16px 40px; font-size: 16px; font-weight: 700; cursor: pointer; font-family: var(--sans); transition: background 0.2s; flex: 1; box-shadow: 0 4px 20px rgba(91,131,173,0.35); }
+    .btn-submit:hover { background: #163f68; }
 
     .other-wrap { margin-top: 10px; display: none; }
     .other-wrap.visible { display: block; }
@@ -115,8 +115,8 @@
     .trust-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
 
     footer { background: var(--ink); color: rgba(255,255,255,0.55); padding: 32px 48px 24px; }
-    .footer-logo { font-family: var(--serif); font-size: 18px; font-weight: 500; color: var(--white); text-decoration: none; display: block; margin-bottom: 12px; }
-    .footer-logo span { color: var(--gold); }
+    .footer-logo { text-decoration: none; display: block; margin-bottom: 12px; }
+    .footer-logo img { height: 36px; width: auto; display: block; }
     .footer-nav { display: flex; gap: 28px; margin-bottom: 20px; flex-wrap: wrap; }
     .footer-nav a { font-size: 13px; color: rgba(255,255,255,0.6); text-decoration: none; }
     .footer-nav a:hover { color: var(--white); }
@@ -136,7 +136,7 @@
 <body>
 
 <nav>
-  <a class="nav-logo" href="index.html">Killion <span>&</span> Hall</a>
+  <a class="nav-logo" href="index.html"><img src="logo-navy.png" alt="Killion & Hall Insurance Agency"></a>
   <div class="nav-right">
     <a href="tel:3178881040" class="nav-phone">(317) 888-1040</a>
     <a href="policyholder.html" class="nav-policyholder">For Policyholders</a>
@@ -380,7 +380,7 @@
 </div>
 
 <footer>
-  <a class="footer-logo" href="index.html">Killion <span>&</span> Hall</a>
+  <a class="footer-logo" href="index.html"><img src="logo-white.png" alt="Killion & Hall Insurance Agency"></a>
   <div class="footer-nav">
     <a href="index.html">Home</a>
     <a href="index.html#services">Services</a>
@@ -543,7 +543,7 @@ async function submitQuote() {
     _replyto: em
   };
   try {
-    const res = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+    const res = await fetch('https://formspree.io/f/myezoprj', {
       method:'POST', headers:{'Accept':'application/json','Content-Type':'application/json'}, body:JSON.stringify(body)
     });
     if (res.ok) {
