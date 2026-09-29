@@ -3,27 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Killion & Hall Insurance — Indianapolis</title>
+  <title>Killion & Hall Insurance — Central Indiana</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --ink: #0f0f0f;
-      --ink-light: #4a4a4a;
-      --ink-muted: #888;
-      --cream: #f9f7f4;
-      --cream-dark: #f0ede8;
-      --white: #ffffff;
-      --gold: #b8935a;
-      --gold-light: #d4ab72;
-      --blue-deep: #1a2e4a;
-      --blue-mid: #2c4a6e;
-      --border: #e8e4de;
-      --sans: 'Inter', system-ui, sans-serif;
-      --serif: 'Playfair Display', Georgia, serif;
+      --ink: #1a1d17;
+      --ink-light: #57594f;
+      --ink-muted: #8c8d80;
+      --cream: #f6f1e5;
+      --cream-dark: #ece4d1;
+      --white: #fffdf8;
+      --terracotta: #0d3868;
+      --terracotta-dark: #082948;
+      --gold: #5b83ad;
+      --gold-light: #9dbedd;
+      --deep-green: #16231a;
+      --deep-green-mid: #1f3024;
+      --border: #e6ddc8;
+      --sans: 'Inter', system-ui, -apple-system, sans-serif;
     }
 
     html { scroll-behavior: smooth; }
@@ -35,74 +36,109 @@
       -webkit-font-smoothing: antialiased;
     }
 
+    /* ─── UTILITY BAR ─── */
+    .utility-bar {
+      background: var(--deep-green); color: rgba(255,255,255,0.75);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 48px; font-size: 12.5px; font-weight: 500;
+    }
+    .utility-left { display: flex; align-items: center; gap: 24px; }
+    .utility-left a { color: rgba(255,255,255,0.85); text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+    .utility-left a:hover { color: var(--gold-light); }
+    .utility-right { display: flex; align-items: center; gap: 8px; }
+    .utility-stars { color: #f0c419; letter-spacing: 1px; font-size: 12px; }
+
     /* ─── NAV ─── */
     nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      position: sticky; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 0 48px; height: 72px;
-      background: rgba(255,255,255,0.92);
+      padding: 0 48px; height: 76px;
+      background: rgba(246,241,229,0.94);
       backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(232,228,222,0.6);
+      border-bottom: 1px solid rgba(230,221,200,0.7);
       transition: background 0.3s, box-shadow 0.3s;
     }
-    .nav-logo { font-family: var(--serif); font-size: 18px; font-weight: 500; color: var(--ink); letter-spacing: -0.3px; text-decoration: none; }
-    .nav-logo span { color: var(--gold); }
+    .nav-logo { display: flex; align-items: center; text-decoration: none; }
+    .nav-logo img { height: 44px; width: auto; display: block; }
     .nav-links { display: flex; gap: 32px; list-style: none; }
-    .nav-links a { font-size: 13px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink-light); text-decoration: none; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--ink); }
-    .nav-right { display: flex; align-items: center; gap: 20px; }
-    .nav-phone { font-size: 13px; font-weight: 600; color: var(--ink-light); text-decoration: none; letter-spacing: 0.02em; }
-    .nav-phone:hover { color: var(--gold); }
-    .nav-cta { background: var(--ink); color: var(--white) !important; padding: 10px 22px; border-radius: 100px; font-size: 13px; font-weight: 600; letter-spacing: 0.02em; text-decoration: none; transition: background 0.2s, transform 0.15s; }
-    .nav-cta:hover { background: var(--gold); transform: translateY(-1px); }
-    .nav-policyholder { background: none; border: 1.5px solid var(--border); color: var(--ink-light) !important; padding: 9px 18px; border-radius: 100px; font-size: 13px; font-weight: 600; letter-spacing: 0.02em; text-decoration: none; transition: border-color 0.2s, color 0.2s; }
-    .nav-policyholder:hover { border-color: var(--gold); color: var(--gold) !important; }
+    .nav-links a { font-size: 14.5px; font-weight: 600; color: var(--ink-light); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--terracotta); }
+    .nav-right { display: flex; align-items: center; gap: 14px; }
+    .nav-phone {
+      font-size: 13.5px; font-weight: 700; color: var(--ink); text-decoration: none;
+      border: 1.5px solid var(--border); border-radius: 100px; padding: 10px 18px;
+      display: inline-flex; align-items: center; gap: 8px; transition: border-color 0.2s, color 0.2s;
+    }
+    .nav-phone:hover { border-color: var(--terracotta); color: var(--terracotta); }
+    .nav-cta { background: var(--terracotta); color: var(--white) !important; padding: 11px 22px; border-radius: 100px; font-size: 13.5px; font-weight: 700; letter-spacing: 0.01em; text-decoration: none; transition: background 0.2s, transform 0.15s; }
+    .nav-cta:hover { background: var(--terracotta-dark); transform: translateY(-1px); }
+    .nav-policyholder { background: none; border: none; color: var(--ink-light) !important; padding: 9px 4px; font-size: 13.5px; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; transition: color 0.2s; }
+    .nav-policyholder:hover { color: var(--terracotta); }
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
     .hamburger span { display: block; width: 22px; height: 2px; background: var(--ink); border-radius: 2px; }
 
     /* ─── HERO ─── */
     .hero {
-      min-height: 100vh; display: flex; flex-direction: column; justify-content: center;
-      padding: 120px 48px 80px; background: var(--cream); position: relative; overflow: hidden;
+      padding: 88px 48px 72px; background: var(--cream); position: relative; overflow: hidden;
     }
     .hero::before {
-      content: ''; position: absolute; top: -200px; right: -200px;
+      content: ''; position: absolute; top: -220px; right: -220px;
       width: 700px; height: 700px;
-      background: radial-gradient(circle, rgba(184,147,90,0.10) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(13,56,104,0.08) 0%, transparent 70%);
       pointer-events: none;
     }
+    .hero-grid { max-width: 1320px; margin: 0 auto; display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items: center; position: relative; z-index: 1; }
+    .hero-visual { position: relative; }
+    .hero-visual img { width: 100%; height: 460px; object-fit: cover; border-radius: 26px; display: block; box-shadow: 0 30px 60px -10px rgba(15,20,15,0.25); }
+    .hero-badge { position: absolute; background: var(--white); border-radius: 16px; padding: 14px 18px; box-shadow: 0 16px 36px rgba(0,0,0,0.14); display: flex; align-items: center; gap: 12px; z-index: 2; }
+    .hero-badge-rating { top: -20px; left: -20px; }
+    .hero-badge-rating strong { display: block; font-size: 20px; font-weight: 800; color: var(--ink); line-height: 1; }
+    .hero-badge-rating .stars { color: #f0c419; font-size: 11px; letter-spacing: 1px; margin-top: 4px; display: block; }
+    .hero-badge-rating span.sub { font-size: 11px; color: var(--ink-muted); font-weight: 600; }
+    .hero-badge-stat { bottom: -20px; right: -20px; background: var(--deep-green); }
+    .hero-badge-stat strong { display: block; font-size: 22px; font-weight: 800; color: var(--white); line-height: 1; }
+    .hero-badge-stat span { font-size: 11px; color: rgba(255,255,255,0.7); font-weight: 600; line-height: 1.3; display: block; margin-top: 3px; max-width: 120px; }
     .hero-eyebrow {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 28px;
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 24px;
     }
-    .hero-eyebrow::before { content: ''; display: block; width: 28px; height: 1px; background: var(--gold); }
+    .hero-eyebrow::before { content: ''; display: block; width: 8px; height: 8px; border-radius: 50%; background: var(--terracotta); }
     .hero h1 {
-      font-family: var(--serif); font-size: clamp(42px, 6vw, 84px); font-weight: 500;
-      line-height: 1.08; letter-spacing: -0.02em; color: var(--ink); max-width: 780px; margin-bottom: 28px;
+      font-family: var(--sans); font-size: clamp(40px, 5.6vw, 76px); font-weight: 800;
+      line-height: 1.05; letter-spacing: -0.03em; color: var(--ink); max-width: 760px; margin-bottom: 24px;
     }
-    .hero h1 em { font-style: italic; color: var(--gold); }
-    .hero-sub { font-size: 18px; color: var(--ink-light); max-width: 460px; line-height: 1.65; margin-bottom: 48px; }
-    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+    .hero h1 em { font-style: normal; color: var(--terracotta); }
+    .hero-sub { font-size: 18px; color: var(--ink-light); max-width: 480px; line-height: 1.65; margin-bottom: 36px; }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
     .btn-primary {
       display: inline-flex; align-items: center; gap: 10px;
-      background: var(--ink); color: var(--white); padding: 16px 32px; border-radius: 100px;
-      font-size: 14px; font-weight: 600; text-decoration: none; transition: background 0.2s, transform 0.15s;
+      background: var(--terracotta); color: var(--white); padding: 16px 30px; border-radius: 100px;
+      font-size: 14.5px; font-weight: 700; text-decoration: none; transition: background 0.2s, transform 0.15s;
     }
-    .btn-primary:hover { background: var(--gold); transform: translateY(-2px); }
+    .btn-primary:hover { background: var(--terracotta-dark); transform: translateY(-2px); }
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 10px; color: var(--ink);
+      padding: 15px 28px; font-size: 14.5px; font-weight: 700; text-decoration: none;
+      border: 1.5px solid var(--ink); border-radius: 100px; transition: color 0.2s, border-color 0.2s, background 0.2s;
+    }
+    .btn-outline:hover { color: var(--terracotta); border-color: var(--terracotta); background: rgba(13,56,104,0.05); }
     .btn-ghost {
       display: inline-flex; align-items: center; gap: 8px; color: var(--ink);
-      padding: 16px 0; font-size: 14px; font-weight: 500; text-decoration: none;
-      border-bottom: 1px solid var(--ink); transition: color 0.2s, border-color 0.2s;
+      padding: 16px 0; font-size: 14.5px; font-weight: 600; text-decoration: none;
+      border-bottom: 1.5px solid var(--ink); transition: color 0.2s, border-color 0.2s;
     }
-    .btn-ghost:hover { color: var(--gold); border-color: var(--gold); }
-    .hero-badges { margin-top: 72px; display: flex; gap: 16px; flex-wrap: wrap; }
-    .badge { display: inline-flex; align-items: center; gap: 8px; background: var(--white); border: 1px solid var(--border); border-radius: 100px; padding: 8px 18px; font-size: 12px; font-weight: 500; color: var(--ink-light); }
-    .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: #4caf73; }
+    .btn-ghost:hover { color: var(--terracotta); border-color: var(--terracotta); }
+
+    /* ─── TRUST GRID (2x2) ─── */
+    .trust-grid { margin-top: 56px; display: grid; grid-template-columns: repeat(2, minmax(0,260px)); gap: 20px 40px; max-width: 560px; }
+    .trust-item { display: flex; align-items: center; gap: 12px; }
+    .trust-icon { width: 36px; height: 36px; border-radius: 10px; background: var(--white); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--gold); flex-shrink: 0; }
+    .trust-item span { font-size: 13.5px; font-weight: 600; color: var(--ink-light); }
 
     /* ─── COVERAGE SELECTOR ─── */
     .coverage-selector { margin-top: 52px; }
-    .coverage-label { font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 14px; }
+    .coverage-label { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 14px; }
     .coverage-cards { display: flex; gap: 12px; flex-wrap: wrap; }
     .cov-card {
       display: flex; align-items: center; gap: 14px;
@@ -112,146 +148,140 @@
       transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
       cursor: pointer;
     }
-    .cov-card:hover { border-color: var(--gold); box-shadow: 0 8px 24px rgba(0,0,0,0.08); transform: translateY(-2px); }
+    .cov-card:hover { border-color: var(--terracotta); box-shadow: 0 8px 24px rgba(0,0,0,0.08); transform: translateY(-2px); }
     .cov-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .cov-text { flex: 1; }
     .cov-text strong { display: block; font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 2px; }
     .cov-text span { font-size: 12px; color: var(--ink-muted); }
     .cov-arrow { font-size: 16px; color: var(--ink-muted); transition: color 0.2s, transform 0.2s; }
-    .cov-card:hover .cov-arrow { color: var(--gold); transform: translateX(3px); }
+    .cov-card:hover .cov-arrow { color: var(--terracotta); transform: translateX(3px); }
+
+    /* ─── TAG CAROUSEL ("What We Cover") ─── */
+    .tag-carousel-wrap { background: var(--cream); border-top: 1px solid var(--border); padding: 28px 0; overflow: hidden; }
+    .tag-carousel-inner { display: flex; align-items: center; gap: 28px; padding: 0 48px; max-width: 1400px; margin: 0 auto; }
+    .tag-carousel-label { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--terracotta); white-space: nowrap; flex-shrink: 0; }
+    .tag-scroll { display: flex; gap: 10px; overflow-x: auto; scrollbar-width: none; padding-bottom: 2px; }
+    .tag-scroll::-webkit-scrollbar { display: none; }
+    .tag-pill { flex-shrink: 0; background: var(--white); border: 1.5px solid var(--border); border-radius: 100px; padding: 10px 20px; font-size: 13.5px; font-weight: 600; color: var(--ink-light); white-space: nowrap; }
 
     /* ─── STATS STRIP ─── */
     .stats-strip {
-      background: var(--ink); color: var(--white); padding: 56px 48px;
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+      background: var(--white); padding: 64px 48px;
+      display: grid; grid-template-columns: repeat(5, 1fr); gap: 0;
+      max-width: 1280px; margin: 0 auto;
     }
-    .stat-item { padding: 0 32px; border-right: 1px solid rgba(255,255,255,0.12); }
+    .stat-item { padding: 0 22px; border-right: 1px solid var(--border); }
     .stat-item:first-child { padding-left: 0; }
     .stat-item:last-child { border-right: none; }
-    .stat-num { font-family: var(--serif); font-size: 48px; font-weight: 400; line-height: 1; color: var(--gold-light); margin-bottom: 8px; }
-    .stat-label { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.5; }
-
-    /* ─── PHOTO GALLERY ─── */
-    .photo-section { padding: 0; overflow: hidden; }
-    .photo-grid-4 {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr;
-      grid-template-rows: 300px 300px;
-      gap: 4px;
-    }
-    .photo-item {
-      position: relative; overflow: hidden; cursor: pointer;
-    }
-    .photo-item img {
-      width: 100%; height: 100%; object-fit: cover;
-      transition: transform 0.6s ease;
-      display: block;
-    }
-    .photo-item:hover img { transform: scale(1.05); }
-    .photo-item.tall2 { grid-row: span 2; }
-    .photo-overlay {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      padding: 20px 24px;
-      background: linear-gradient(to top, rgba(15,15,15,0.7) 0%, transparent 100%);
-      color: var(--white);
-      font-size: 12px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase;
-      opacity: 0; transition: opacity 0.3s;
-    }
-    .photo-item:hover .photo-overlay { opacity: 1; }
+    .stat-num { font-family: var(--sans); font-size: 40px; font-weight: 800; line-height: 1; color: var(--ink); margin-bottom: 10px; letter-spacing: -0.02em; }
+    .stat-num em { font-style: normal; color: var(--terracotta); }
+    .stat-label { font-size: 13px; color: var(--ink-muted); line-height: 1.5; font-weight: 500; }
 
     /* ─── SECTION SHARED ─── */
     .section { padding: 96px 48px; }
-    .section-label { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
-    .section-title { font-family: var(--serif); font-size: clamp(32px, 4vw, 52px); font-weight: 500; line-height: 1.15; letter-spacing: -0.02em; color: var(--ink); max-width: 560px; margin-bottom: 20px; }
+    .section-label { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 16px; }
+    .section-label::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--gold); }
+    .section-title { font-family: var(--sans); font-size: clamp(30px, 4vw, 48px); font-weight: 800; line-height: 1.12; letter-spacing: -0.025em; color: var(--ink); max-width: 560px; margin-bottom: 20px; }
     .section-desc { font-size: 16px; color: var(--ink-light); max-width: 480px; line-height: 1.7; margin-bottom: 48px; }
 
     /* ─── WHY US ─── */
-    .why-section { background: var(--white); }
+    .why-section { background: var(--cream); }
+    .why-top { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 64px; align-items: center; max-width: 1200px; margin: 0 auto 72px; }
+    .why-photo { position: relative; }
+    .why-photo img { width: 100%; height: 420px; object-fit: cover; object-position: top; border-radius: 24px; display: block; box-shadow: 0 24px 50px -10px rgba(15,20,15,0.25); }
+    .about-badge { position: absolute; background: var(--white); border-radius: 16px; padding: 14px 18px; box-shadow: 0 16px 36px rgba(0,0,0,0.14); z-index: 2; }
+    .about-badge strong { display: block; font-size: 22px; font-weight: 800; color: var(--ink); line-height: 1; }
+    .about-badge span { font-size: 11px; color: var(--ink-muted); font-weight: 600; display: block; margin-top: 3px; }
+    .about-badge.dark { background: var(--deep-green); }
+    .about-badge.dark strong { color: var(--white); }
+    .about-badge.dark span { color: rgba(255,255,255,0.7); }
+    .about-badge.top-left { top: -20px; left: -20px; }
+    .about-badge.bottom-right { bottom: -20px; right: -20px; }
+    .why-top-content .section-desc { margin-bottom: 28px; }
     .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; max-width: 1200px; margin: 0 auto; }
-    .why-pillars { display: flex; flex-direction: column; gap: 32px; margin-top: 48px; }
-    .pillar { display: flex; gap: 20px; align-items: flex-start; }
-    .pillar-icon { width: 44px; height: 44px; border-radius: 12px; background: var(--cream); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--gold); }
-    .pillar-text h4 { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+    .why-pillars { display: flex; flex-direction: column; gap: 16px; margin-top: 40px; }
+    .pillar { display: flex; gap: 20px; align-items: flex-start; background: var(--white); border: 1px solid var(--border); border-radius: 18px; padding: 24px; }
+    .pillar-num { font-family: var(--sans); font-size: 13px; font-weight: 800; color: var(--terracotta); background: rgba(13,56,104,0.08); border-radius: 10px; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .pillar-text h4 { font-size: 16px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
     .pillar-text p { font-size: 14px; color: var(--ink-light); line-height: 1.6; }
-    .why-card { background: var(--blue-deep); border-radius: 24px; padding: 48px 40px; color: var(--white); position: relative; overflow: hidden; }
-    .why-card::before { content: ''; position: absolute; top: -80px; right: -80px; width: 280px; height: 280px; border-radius: 50%; background: rgba(184,147,90,0.15); }
-    .why-card-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(184,147,90,0.2); border: 1px solid rgba(184,147,90,0.35); border-radius: 100px; padding: 6px 14px; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 28px; }
-    .why-card h3 { font-family: var(--serif); font-size: 28px; font-weight: 500; line-height: 1.2; margin-bottom: 16px; }
+    .why-card { background: var(--deep-green); border-radius: 24px; padding: 48px 40px; color: var(--white); position: relative; overflow: hidden; }
+    .why-card::before { content: ''; position: absolute; top: -80px; right: -80px; width: 280px; height: 280px; border-radius: 50%; background: rgba(13,56,104,0.18); }
+    .why-card-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(13,56,104,0.22); border: 1px solid rgba(13,56,104,0.4); border-radius: 100px; padding: 6px 14px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #9dbedd; margin-bottom: 28px; }
+    .why-card h3 { font-family: var(--sans); font-size: 28px; font-weight: 800; line-height: 1.2; margin-bottom: 16px; letter-spacing: -0.02em; }
     .why-card p { font-size: 14px; color: rgba(255,255,255,0.65); line-height: 1.7; margin-bottom: 28px; }
-    .why-card-detail { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; display: flex; flex-direction: column; gap: 12px; }
+    .why-card-detail { border-top: 1px solid rgba(255,255,255,0.12); padding-top: 24px; display: flex; flex-direction: column; gap: 12px; }
     .why-card-row { display: flex; justify-content: space-between; font-size: 13px; }
     .why-card-row span:first-child { color: rgba(255,255,255,0.55); }
-    .why-card-row span:last-child { color: var(--white); font-weight: 500; }
+    .why-card-row span:last-child { color: var(--white); font-weight: 600; }
 
     /* ─── SERVICES ─── */
-    .services-section { background: var(--cream); }
+    .services-section { background: var(--white); }
     .services-header { max-width: 1200px; margin: 0 auto 56px; display: flex; justify-content: space-between; align-items: flex-end; }
     .services-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
     .service-card {
-      background: var(--white); border-radius: 20px; padding: 40px 36px;
+      background: var(--cream); border-radius: 20px; padding: 40px 36px;
       border: 1px solid var(--border); transition: transform 0.25s, box-shadow 0.25s;
       cursor: default; position: relative; overflow: hidden;
     }
-    .service-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--gold), var(--gold-light)); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
+    .service-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--terracotta), var(--gold)); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
     .service-card:hover { transform: translateY(-6px); box-shadow: 0 24px 48px rgba(0,0,0,0.08); }
     .service-card:hover::after { transform: scaleX(1); }
-    .service-icon { width: 52px; height: 52px; border-radius: 16px; background: var(--cream); display: flex; align-items: center; justify-content: center; margin-bottom: 24px; color: var(--gold); }
-    .service-card h3 { font-family: var(--serif); font-size: 22px; font-weight: 500; color: var(--ink); margin-bottom: 12px; }
+    .service-icon { width: 52px; height: 52px; border-radius: 16px; background: var(--white); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; margin-bottom: 24px; color: var(--terracotta); }
+    .service-card h3 { font-family: var(--sans); font-size: 21px; font-weight: 700; color: var(--ink); margin-bottom: 12px; letter-spacing: -0.01em; }
     .service-card p { font-size: 14px; color: var(--ink-light); line-height: 1.7; margin-bottom: 24px; }
-    .service-link { font-size: 13px; font-weight: 600; color: var(--gold); text-decoration: none; letter-spacing: 0.02em; display: inline-flex; align-items: center; gap: 6px; transition: gap 0.2s; }
+    .service-link { font-size: 13px; font-weight: 700; color: var(--terracotta); text-decoration: none; letter-spacing: 0.01em; display: inline-flex; align-items: center; gap: 6px; transition: gap 0.2s; }
     .service-link:hover { gap: 10px; }
 
-    /* ─── COMMUNITY PHOTO STRIP ─── */
-    .community-section { background: var(--cream); padding: 80px 0 0; }
-    .community-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px 0; }
-    .community-inner .section-label { margin-bottom: 12px; }
-    .community-inner .section-title { margin-bottom: 16px; }
-    .community-desc { font-size: 15px; color: var(--ink-light); max-width: 560px; line-height: 1.7; margin-bottom: 48px; }
-    .community-photos {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 4px;
-      height: 340px;
-    }
-    .comm-photo { position: relative; overflow: hidden; }
-    .comm-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; display: block; }
-    .comm-photo:hover img { transform: scale(1.07); }
-    .comm-caption {
-      position: absolute; bottom: 0; left: 0; right: 0; padding: 16px;
-      background: linear-gradient(to top, rgba(15,15,15,0.75), transparent);
-      color: var(--white); font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
-    }
-    /* user photo placeholders — swap src= with your own images */
-    .user-photo-note {
-      display: none; /* hidden — for developer reference only */
-    }
-
     /* ─── PROCESS ─── */
-    .process-section { background: var(--white); }
+    .process-section { background: var(--cream); }
     .process-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
     .steps { display: flex; flex-direction: column; gap: 0; }
     .step { display: flex; gap: 24px; padding-bottom: 40px; position: relative; }
     .step:not(:last-child)::before { content: ''; position: absolute; top: 44px; left: 19px; width: 1px; bottom: 0; background: var(--border); }
-    .step-num { width: 40px; height: 40px; border-radius: 50%; background: var(--cream); border: 2px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: var(--gold); flex-shrink: 0; z-index: 1; }
-    .step-content h4 { font-size: 16px; font-weight: 600; color: var(--ink); margin-bottom: 6px; padding-top: 8px; }
+    .step-num { width: 40px; height: 40px; border-radius: 50%; background: var(--white); border: 2px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800; color: var(--terracotta); flex-shrink: 0; z-index: 1; }
+    .step-content h4 { font-size: 16px; font-weight: 700; color: var(--ink); margin-bottom: 6px; padding-top: 8px; }
     .step-content p { font-size: 14px; color: var(--ink-light); line-height: 1.65; }
-    .process-aside { background: var(--cream); border-radius: 24px; padding: 48px 40px; }
-    .process-aside h3 { font-family: var(--serif); font-size: 26px; font-weight: 500; color: var(--ink); margin-bottom: 8px; }
+    .process-aside { background: var(--white); border: 1px solid var(--border); border-radius: 24px; padding: 48px 40px; }
+    .process-aside h3 { font-family: var(--sans); font-size: 26px; font-weight: 800; color: var(--ink); margin-bottom: 8px; letter-spacing: -0.02em; }
     .process-aside p { font-size: 14px; color: var(--ink-light); line-height: 1.7; margin-bottom: 32px; }
-    .carriers-label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 16px; }
+    .carriers-label { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 16px; }
     .carriers-list { display: flex; flex-wrap: wrap; gap: 8px; }
-    .carrier-tag { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 6px 14px; font-size: 12px; font-weight: 500; color: var(--ink-light); }
+    .carrier-tag { background: var(--cream); border: 1px solid var(--border); border-radius: 8px; padding: 6px 14px; font-size: 12px; font-weight: 600; color: var(--ink-light); }
 
     /* ─── QUOTE FORM ─── */
-    .quote-section { background: var(--cream); }
+    .quote-section { background: var(--deep-green); }
+    .quote-section .section-label { color: #9dbedd; }
+    .quote-section .section-label::before { background: var(--gold-light); }
+    .quote-section .section-title { color: var(--white); }
+    .quote-section .section-desc { color: rgba(255,255,255,0.65); }
     .quote-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
     .quote-perks { display: flex; flex-direction: column; gap: 12px; margin-top: 32px; }
-    .quote-perk { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--ink-light); font-weight: 500; }
-    .quote-perk svg { color: var(--gold); flex-shrink: 0; }
-    .quote-card { background: var(--white); border-radius: 24px; padding: 40px; border: 1px solid var(--border); box-shadow: 0 8px 32px rgba(0,0,0,0.06); }
+    .quote-perk { display: flex; align-items: center; gap: 10px; font-size: 14px; color: rgba(255,255,255,0.8); font-weight: 500; }
+    .quote-perk svg { color: #9dbedd; flex-shrink: 0; }
+    .btn-outline-light {
+      display: inline-flex; align-items: center; gap: 10px; color: var(--white);
+      padding: 14px 26px; font-size: 14px; font-weight: 700; text-decoration: none;
+      border: 1.5px solid rgba(255,255,255,0.35); border-radius: 100px; margin-top: 28px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-outline-light:hover { border-color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.08); }
+    .quote-card { background: var(--cream); border-radius: 24px; padding: 40px; border: 1px solid var(--border); box-shadow: 0 20px 50px rgba(0,0,0,0.25); }
+    .picker-progress { height: 4px; border-radius: 100px; background: var(--border); margin-bottom: 20px; overflow: hidden; }
+    .picker-progress span { display: block; height: 100%; width: 35%; background: var(--terracotta); border-radius: 100px; }
+    .coverage-picker { margin-bottom: 22px; }
+    .coverage-picker-label { font-size: 13px; font-weight: 700; color: var(--ink); margin-bottom: 10px; }
+    .coverage-picker-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .cov-pick {
+      background: var(--white); border: 1.5px solid var(--border); border-radius: 10px;
+      padding: 11px 14px; font-size: 13.5px; font-weight: 600; color: var(--ink-light);
+      text-align: left; cursor: pointer; font-family: var(--sans);
+      transition: border-color 0.2s, background 0.2s, color 0.2s;
+    }
+    .cov-pick:hover { border-color: var(--terracotta); }
+    .cov-pick.active { background: var(--terracotta); border-color: var(--terracotta); color: var(--white); }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
     .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 20px; }
-    .form-group label { font-size: 13px; font-weight: 600; color: var(--ink); letter-spacing: 0.01em; }
+    .form-group label { font-size: 13px; font-weight: 700; color: var(--ink); letter-spacing: 0.01em; }
     .form-group input, .form-group select, .form-group textarea {
       padding: 12px 16px; border: 1.5px solid var(--border); border-radius: 10px;
       font-size: 14px; font-family: var(--sans); color: var(--ink);
@@ -259,76 +289,87 @@
       transition: border-color 0.2s, box-shadow 0.2s;
     }
     .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-      border-color: var(--gold); box-shadow: 0 0 0 3px rgba(184,147,90,0.12);
+      border-color: var(--terracotta); box-shadow: 0 0 0 3px rgba(13,56,104,0.12);
     }
-    .form-group input::placeholder, .form-group textarea::placeholder { color: #bbb; }
+    .form-group input::placeholder, .form-group textarea::placeholder { color: #b5ae9c; }
     .form-group select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; cursor: pointer; }
     .form-group textarea { resize: none; line-height: 1.6; }
     .form-submit {
-      width: 100%; padding: 15px 24px; background: var(--ink); color: var(--white);
-      border: none; border-radius: 100px; font-size: 15px; font-weight: 600;
+      width: 100%; padding: 15px 24px; background: var(--terracotta); color: var(--white);
+      border: none; border-radius: 100px; font-size: 15px; font-weight: 700;
       font-family: var(--sans); cursor: pointer; display: flex; align-items: center;
       justify-content: center; gap: 10px; transition: background 0.2s, transform 0.15s;
       margin-bottom: 16px;
     }
-    .form-submit:hover { background: var(--gold); transform: translateY(-1px); }
+    .form-submit:hover { background: var(--terracotta-dark); transform: translateY(-1px); }
     .form-note { font-size: 12px; color: var(--ink-muted); text-align: center; }
     .form-success { text-align: center; padding: 24px 0; }
     .success-icon { width: 64px; height: 64px; border-radius: 50%; background: #edf7f0; color: #3a9e5f; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; }
-    .form-success h3 { font-family: var(--serif); font-size: 24px; font-weight: 500; color: var(--ink); margin-bottom: 12px; }
+    .form-success h3 { font-family: var(--sans); font-size: 24px; font-weight: 800; color: var(--ink); margin-bottom: 12px; }
     .form-success p { font-size: 14px; color: var(--ink-light); line-height: 1.7; }
-    .form-success a { color: var(--gold); text-decoration: none; font-weight: 600; }
+    .form-success a { color: var(--terracotta); text-decoration: none; font-weight: 700; }
 
     /* ─── TESTIMONIALS ─── */
-    .social-section { background: var(--cream); padding: 80px 48px; text-align: center; }
-    .awards-row { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; margin-top: 48px; }
-    .award-card { background: var(--white); border: 1px solid var(--border); border-radius: 20px; padding: 36px 40px; max-width: 300px; text-align: left; }
-    .award-stars { color: var(--gold); font-size: 18px; letter-spacing: 2px; margin-bottom: 16px; }
-    .award-card p { font-size: 14px; color: var(--ink-light); line-height: 1.7; margin-bottom: 20px; font-style: italic; }
-    .award-author { font-size: 13px; font-weight: 600; color: var(--ink); }
-    .award-platform { display: inline-flex; align-items: center; gap: 6px; background: var(--cream); border-radius: 100px; padding: 6px 14px; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-light); margin-top: 16px; }
+    .social-section { background: var(--cream); padding: 88px 48px; }
+    .social-header { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 32px; margin-bottom: 48px; }
+    .rating-summary { background: var(--white); border: 1px solid var(--border); border-radius: 20px; padding: 28px 36px; display: flex; align-items: center; gap: 20px; }
+    .rating-num { font-family: var(--sans); font-size: 44px; font-weight: 800; color: var(--ink); letter-spacing: -0.02em; }
+    .rating-detail { display: flex; flex-direction: column; gap: 4px; }
+    .rating-stars { color: #f0c419; font-size: 16px; letter-spacing: 2px; }
+    .rating-sub { font-size: 12.5px; color: var(--ink-muted); font-weight: 600; }
+    .awards-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 1200px; margin: 0 auto; }
+    .award-card { background: var(--white); border: 1px solid var(--border); border-radius: 20px; padding: 32px 36px; text-align: left; }
+    .award-stars { color: #f0c419; font-size: 16px; letter-spacing: 2px; margin-bottom: 16px; }
+    .award-card p { font-size: 14.5px; color: var(--ink-light); line-height: 1.7; margin-bottom: 20px; }
+    .award-author { font-size: 13.5px; font-weight: 700; color: var(--ink); }
+    .award-platform { display: inline-flex; align-items: center; gap: 6px; background: var(--cream); border-radius: 100px; padding: 6px 14px; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink-light); margin-top: 16px; }
+    .mini-quotes { max-width: 1200px; margin: 32px auto 0; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .mini-quote { background: var(--white); border: 1px solid var(--border); border-radius: 100px; padding: 10px 22px; display: inline-flex; align-items: center; gap: 10px; }
+    .badges-row { max-width: 1200px; margin: 40px auto 0; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .badge-pill { display: inline-flex; align-items: center; gap: 12px; background: var(--white); border: 1px solid var(--border); border-radius: 100px; padding: 12px 24px; }
 
     /* ─── CTA ─── */
-    .cta-section { background: var(--blue-deep); padding: 100px 48px; text-align: center; position: relative; overflow: hidden; }
-    .cta-section::before { content: ''; position: absolute; top: -150px; left: 50%; transform: translateX(-50%); width: 600px; height: 600px; border-radius: 50%; background: rgba(184,147,90,0.10); pointer-events: none; }
-    .cta-section .section-label { color: var(--gold-light); display: block; }
-    .cta-section h2 { font-family: var(--serif); font-size: clamp(36px, 5vw, 64px); font-weight: 500; color: var(--white); max-width: 620px; margin: 0 auto 20px; line-height: 1.1; letter-spacing: -0.02em; }
+    .cta-section { background: var(--deep-green); padding: 100px 48px; text-align: center; position: relative; overflow: hidden; }
+    .cta-section::before { content: ''; position: absolute; top: -150px; left: 50%; transform: translateX(-50%); width: 600px; height: 600px; border-radius: 50%; background: rgba(13,56,104,0.14); pointer-events: none; }
+    .cta-section .section-label { justify-content: center; color: #9dbedd; }
+    .cta-section .section-label::before { background: var(--terracotta); }
+    .cta-section h2 { font-family: var(--sans); font-size: clamp(34px, 5vw, 58px); font-weight: 800; color: var(--white); max-width: 620px; margin: 0 auto 20px; line-height: 1.1; letter-spacing: -0.025em; }
     .cta-section p { font-size: 16px; color: rgba(255,255,255,0.6); max-width: 420px; margin: 0 auto 40px; line-height: 1.65; }
     .cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-    .btn-gold { display: inline-flex; align-items: center; gap: 10px; background: var(--gold); color: var(--white); padding: 16px 32px; border-radius: 100px; font-size: 14px; font-weight: 600; text-decoration: none; transition: background 0.2s, transform 0.15s; }
-    .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); }
-    .btn-outline-white { display: inline-flex; align-items: center; gap: 10px; background: transparent; color: var(--white); padding: 16px 32px; border-radius: 100px; font-size: 14px; font-weight: 600; text-decoration: none; border: 1px solid rgba(255,255,255,0.25); transition: border-color 0.2s, background 0.2s; }
+    .btn-gold { display: inline-flex; align-items: center; gap: 10px; background: var(--terracotta); color: var(--white); padding: 16px 32px; border-radius: 100px; font-size: 14.5px; font-weight: 700; text-decoration: none; transition: background 0.2s, transform 0.15s; }
+    .btn-gold:hover { background: #2c5c94; transform: translateY(-2px); }
+    .btn-outline-white { display: inline-flex; align-items: center; gap: 10px; background: transparent; color: var(--white); padding: 16px 32px; border-radius: 100px; font-size: 14.5px; font-weight: 700; text-decoration: none; border: 1px solid rgba(255,255,255,0.28); transition: border-color 0.2s, background 0.2s; }
     .btn-outline-white:hover { border-color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.06); }
 
     /* ─── LOCATION ─── */
-    .location-section { background: var(--white); padding: 80px 48px; }
+    .location-section { background: var(--white); padding: 88px 48px; }
     .location-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-    .location-info h2 { font-family: var(--serif); font-size: 40px; font-weight: 500; color: var(--ink); margin-bottom: 12px; }
+    .location-info h2 { font-family: var(--sans); font-size: 38px; font-weight: 800; color: var(--ink); margin-bottom: 12px; letter-spacing: -0.02em; }
     .location-info p { font-size: 15px; color: var(--ink-light); line-height: 1.7; margin-bottom: 36px; }
     .location-details { display: flex; flex-direction: column; gap: 20px; }
     .loc-row { display: flex; gap: 16px; align-items: flex-start; }
-    .loc-icon { width: 36px; height: 36px; border-radius: 10px; background: var(--cream); display: flex; align-items: center; justify-content: center; color: var(--gold); flex-shrink: 0; }
-    .loc-text strong { display: block; font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 2px; }
+    .loc-icon { width: 36px; height: 36px; border-radius: 10px; background: var(--cream); display: flex; align-items: center; justify-content: center; color: var(--terracotta); flex-shrink: 0; }
+    .loc-text strong { display: block; font-size: 13px; font-weight: 700; color: var(--ink); margin-bottom: 2px; }
     .loc-text span { font-size: 13px; color: var(--ink-light); }
-    .loc-text a { color: var(--gold); text-decoration: none; font-weight: 500; }
+    .loc-text a { color: var(--terracotta); text-decoration: none; font-weight: 600; }
     .loc-text a:hover { text-decoration: underline; }
     .location-map { border-radius: 20px; overflow: hidden; background: var(--cream); height: 380px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--border); }
     .map-placeholder { text-align: center; padding: 40px; }
-    .map-pin { width: 56px; height: 56px; border-radius: 50%; background: var(--gold); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; color: var(--white); }
-    .map-placeholder h4 { font-family: var(--serif); font-size: 20px; color: var(--ink); margin-bottom: 8px; }
+    .map-pin { width: 56px; height: 56px; border-radius: 50%; background: var(--terracotta); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; color: var(--white); }
+    .map-placeholder h4 { font-family: var(--sans); font-size: 19px; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
     .map-placeholder p { font-size: 13px; color: var(--ink-muted); margin-bottom: 20px; }
-    .map-link { display: inline-flex; align-items: center; gap: 8px; background: var(--ink); color: var(--white); padding: 10px 20px; border-radius: 100px; font-size: 12px; font-weight: 600; text-decoration: none; letter-spacing: 0.04em; text-transform: uppercase; transition: background 0.2s; }
-    .map-link:hover { background: var(--gold); }
+    .map-link { display: inline-flex; align-items: center; gap: 8px; background: var(--ink); color: var(--white); padding: 10px 20px; border-radius: 100px; font-size: 12px; font-weight: 700; text-decoration: none; letter-spacing: 0.03em; text-transform: uppercase; transition: background 0.2s; }
+    .map-link:hover { background: var(--terracotta); }
 
     /* ─── FOOTER ─── */
-    footer { background: var(--ink); color: rgba(255,255,255,0.55); padding: 56px 48px 36px; }
+    footer { background: var(--deep-green); color: rgba(255,255,255,0.55); padding: 56px 48px 36px; }
     .footer-top { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 32px; }
     .footer-brand { max-width: 280px; }
-    .footer-logo { font-family: var(--serif); font-size: 20px; font-weight: 500; color: var(--white); text-decoration: none; margin-bottom: 12px; display: block; }
-    .footer-logo span { color: var(--gold); }
+    .footer-logo { text-decoration: none; margin-bottom: 12px; display: block; }
+    .footer-logo img { height: 40px; width: auto; display: block; }
     .footer-brand p { font-size: 13px; line-height: 1.7; }
     .footer-cols { display: flex; gap: 56px; }
-    .footer-col h5 { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 20px; }
+    .footer-col h5 { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 20px; }
     .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
     .footer-col a { font-size: 13px; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.2s; }
     .footer-col a:hover { color: var(--white); }
@@ -348,18 +389,32 @@
 
     /* ─── RESPONSIVE ─── */
     @media (max-width: 900px) {
+      .utility-bar { padding: 8px 24px; flex-wrap: wrap; gap: 8px; }
+      .utility-left { gap: 14px; flex-wrap: wrap; }
       nav { padding: 0 24px; }
       .nav-links { display: none; }
       .hamburger { display: flex; }
-      .hero { padding: 100px 24px 60px; }
+      .hero { padding: 40px 24px 48px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+      .hero-visual { order: -1; margin: 0 12px 12px; }
+      .hero-visual img { height: 280px; }
+      .hero-badge { padding: 10px 14px; }
+      .hero-badge-rating { top: -14px; left: -14px; }
+      .hero-badge-stat { bottom: -14px; right: -14px; }
+      .trust-grid { grid-template-columns: 1fr; max-width: 100%; }
+      .tag-carousel-inner { flex-direction: column; align-items: flex-start; gap: 12px; padding: 0 24px; }
       .stats-strip { grid-template-columns: repeat(2, 1fr); gap: 32px; padding: 48px 24px; }
       .stat-item { border-right: none; padding: 0; }
       .section { padding: 64px 24px; }
       .why-grid, .process-grid, .location-inner { grid-template-columns: 1fr; gap: 40px; }
+      .why-top { grid-template-columns: 1fr; gap: 40px; margin-bottom: 48px; }
+      .why-photo { margin: 0 12px; }
+      .why-photo img { height: 300px; }
+      .about-badge { padding: 10px 14px; }
+      .about-badge.top-left { top: -14px; left: -14px; }
+      .about-badge.bottom-right { bottom: -14px; right: -14px; }
       .services-grid { grid-template-columns: 1fr; }
       .services-header { flex-direction: column; align-items: flex-start; gap: 16px; }
-      .photo-grid-4 { grid-template-columns: 1fr 1fr; grid-template-rows: repeat(3, 220px); }
-      .photo-item.tall2 { grid-row: span 1; }
       .quote-inner { grid-template-columns: 1fr; gap: 40px; }
       .form-row { grid-template-columns: 1fr; }
       .footer-top { flex-direction: column; gap: 40px; }
@@ -367,25 +422,44 @@
       .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
       .location-map { height: 260px; }
       .cta-section { padding: 72px 24px; }
-      .community-inner { padding: 0 24px; }
+      .social-header { flex-direction: column; align-items: flex-start; }
+      .awards-row { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
+<!-- ═══ UTILITY BAR ═══ -->
+<div class="utility-bar">
+  <div class="utility-left">
+    <a href="tel:3178881040">
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M10.5 8.6c0 .2-.1.4-.1.6-.1.2-.2.4-.4.5-.3.2-.6.4-1 .4-.4 0-.7-.1-1.1-.3a12.5 12.5 0 01-1.2-.7 12 12 0 01-1-1c-.3-.4-.5-.7-.7-1.1-.1-.4-.3-.8-.3-1.1 0-.4.1-.7.3-1 .2-.3.4-.5.8-.7.2-.1.4-.1.5-.1.2 0 .4.1.5.1.1.1.3.2.4.4l1.3 1.8c.1.1.1.3.2.4 0 .1.1.2.1.4 0 .1-.1.3-.1.4l-.5.5.1.1c.2.4.5.7.8 1 .3.3.7.6 1 .8h.1l.4-.5c.1-.1.3-.2.4-.2h.4c.1 0 .3.1.4.2l1.8 1.3c.2.1.3.2.4.4.1.1.1.3.1.5z" stroke="currentColor" stroke-width="1"/></svg>
+      (317) 888-1040
+    </a>
+    <span>7610 Madison Ave, Indianapolis, IN</span>
+    <span>Mon–Thu 8:30–5 · Fri 8:30–4</span>
+  </div>
+  <div class="utility-right">
+    <span class="utility-stars">★★★★★</span>
+    <span>4.8 on Google · Serving Central Indiana since 1978</span>
+  </div>
+</div>
+
 <!-- ═══ NAV ═══ -->
 <nav id="navbar">
-  <a class="nav-logo" href="index.html">Killion <span>&</span> Hall</a>
+  <a class="nav-logo" href="index.html"><img src="logo-navy.png" alt="Killion & Hall Insurance Agency"></a>
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
     <li><a href="#about">About</a></li>
-    <li><a href="#community">Community</a></li>
     <li><a href="#process">How It Works</a></li>
     <li><a href="#location">Location</a></li>
   </ul>
   <div class="nav-right">
-    <a href="tel:3178881040" class="nav-phone">(317) 888-1040</a>
     <a href="policyholder.html" class="nav-policyholder">For Policyholders</a>
+    <a href="tel:3178881040" class="nav-phone">
+      <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M11 8.9c0 .3-.1.5-.1.7-.1.3-.3.5-.5.7-.4.3-.8.5-1.2.5-.5 0-.9-.1-1.4-.3-.5-.2-1-.5-1.5-.8a13.6 13.6 0 01-1.3-1.3c-.4-.4-.7-.9-1-1.4-.2-.5-.4-.9-.4-1.4 0-.4.1-.8.4-1.1.2-.4.5-.6.9-.9.3-.1.5-.2.7-.2.2 0 .5.1.6.2.2.1.3.3.5.5l1.4 2c.1.2.2.3.3.5.1.2.1.3.1.5 0 .2-.1.3-.2.5-.1.1-.2.3-.4.4l-.5.5c.1.1.1.2.2.2.3.5.6.9 1 1.3.4.4.8.7 1.3 1l.1.1.5-.5c.1-.1.3-.2.4-.2h.5c.2 0 .3.1.5.2l2 1.4c.2.1.4.3.5.5.1.1.1.4.1.6z" stroke="currentColor" stroke-width="1.2"/></svg>
+      (317) 888-1040
+    </a>
     <a href="#quote" class="nav-cta">Get a Quote</a>
   </div>
   <button class="hamburger" aria-label="Menu">
@@ -395,23 +469,68 @@
 
 <!-- ═══ HERO ═══ -->
 <section class="hero">
-  <div class="hero-eyebrow fade-up">Independent Insurance Agency · Indianapolis, IN</div>
-  <h1 class="fade-up">Insurance that works<br /><em>for you.</em></h1>
-  <p class="hero-sub fade-up">Trusted protection for your home, auto, business, and life — from Central Indiana's most experienced independent agency.</p>
-  <div class="hero-actions fade-up">
-    <a href="tel:3178881040" class="btn-primary">
-      Get Your Free Quote
-      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
-    <a href="#services" class="btn-ghost">View Our Services</a>
+  <div class="hero-grid">
+    <div class="hero-content">
+      <div class="hero-eyebrow fade-up">Independent Insurance Agency · Central Indiana</div>
+      <h1 class="fade-up">Insurance that works<br /><em>for you.</em></h1>
+      <p class="hero-sub fade-up">Trusted protection for your home, auto, business, and life — from Central Indiana's most experienced independent agency.</p>
+      <div class="hero-actions fade-up">
+        <a href="#quote" class="btn-primary">
+          Get Your Free Quote
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="tel:3178881040" class="btn-outline">
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M12.5 10.2c0 .3-.1.5-.1.8-.1.3-.3.5-.5.7-.4.3-.9.5-1.4.6-.5 0-1-.1-1.6-.3-.6-.2-1.1-.5-1.7-.9a15.2 15.2 0 01-1.5-1.5c-.4-.5-.8-1-1-1.6-.3-.6-.4-1.1-.4-1.6 0-.5.2-1 .4-1.3.3-.4.6-.7 1-1 .3-.1.6-.2.8-.2.3 0 .5.1.7.2.2.1.4.3.6.6l1.6 2.2c.1.2.2.4.3.5.1.2.1.4.1.5 0 .2-.1.4-.2.5-.1.2-.3.3-.5.5l-.5.5c.1.1.1.2.2.3.4.6.7 1 1.1 1.4.4.4.9.8 1.4 1.1l.1.1.6-.5c.1-.2.3-.3.5-.3h.6c.2 0 .4.1.6.2l2.2 1.6c.3.2.4.4.6.6.1.2.1.4.1.7z" stroke="currentColor" stroke-width="1.3"/></svg>
+          Call or Text (317) 888-1040
+        </a>
+      </div>
+
+      <!-- TRUST GRID -->
+      <div class="trust-grid fade-up">
+        <div class="trust-item">
+          <div class="trust-icon"><svg width="17" height="17" viewBox="0 0 17 17" fill="none"><rect x="2" y="4" width="13" height="11" rx="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M5 2v4M12 2v4M2 7.5h13" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg></div>
+          <span>Serving Central Indiana since 1978</span>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon"><svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M8.5 2L3 4.5v3.6C3 12.1 5.4 15 8.5 15.5c3.1-.5 5.5-3.4 5.5-7.4V4.5L8.5 2z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg></div>
+          <span>Indiana-licensed independent agents</span>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon"><svg width="17" height="17" viewBox="0 0 17 17" fill="none"><circle cx="6" cy="6" r="2.5" stroke="currentColor" stroke-width="1.3"/><path d="M1.5 14c0-2.5 2-4.5 4.5-4.5S10.5 11.5 10.5 14M11.5 6.5a2 2 0 100-4 2 2 0 000 4zM13 9.5c1.8.3 3 1.7 3 4.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg></div>
+          <span>100+ years combined experience</span>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon"><svg width="17" height="17" viewBox="0 0 17 17" fill="none"><rect x="2" y="3.5" width="13" height="10" rx="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M2 7h13" stroke="currentColor" stroke-width="1.3"/></svg></div>
+          <span>$0 extra cost — carriers pay our fee</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual fade-up">
+      <img src="hero-office.jpg" alt="Killion & Hall Insurance Agency office sign, 7610 Madison Avenue" />
+      <div class="hero-badge hero-badge-rating">
+        <div>
+          <strong>4.8</strong>
+          <span class="stars">★★★★★</span>
+        </div>
+        <span class="sub">Rated on<br />Google</span>
+      </div>
+      <div class="hero-badge hero-badge-stat">
+        <div>
+          <strong>40+</strong>
+          <span>Years serving<br />Central Indiana</span>
+        </div>
+      </div>
+    </div>
   </div>
+
   <!-- COVERAGE SELECTOR -->
   <div class="coverage-selector fade-up">
     <p class="coverage-label">What would you like to insure?</p>
     <div class="coverage-cards">
       <a href="quote-home-auto.html" class="cov-card">
         <div class="cov-icon" style="background:#eef4ff;">
-          <svg width="26" height="26" viewBox="0 0 26 26" fill="none"><path d="M3 12.5L13 4l10 8.5V22a1 1 0 01-1 1H4a1 1 0 01-1-1V12.5z" stroke="#2c6fd1" stroke-width="1.6"/><path d="M9.5 23V16h7v7" stroke="#2c6fd1" stroke-width="1.6"/><path d="M7 23V14.5" stroke="none"/><rect x="8" y="6" width="4" height="3" rx=".5" fill="#2c6fd1" opacity=".3"/>
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none"><path d="M3 12.5L13 4l10 8.5V22a1 1 0 01-1 1H4a1 1 0 01-1-1V12.5z" stroke="#2c6fd1" stroke-width="1.6"/><path d="M9.5 23V16h7v7" stroke="#2c6fd1" stroke-width="1.6"/><rect x="8" y="6" width="4" height="3" rx=".5" fill="#2c6fd1" opacity=".3"/>
           <path d="M17 18.5a2 2 0 100 4 2 2 0 000-4z" fill="none" stroke="#2c6fd1" stroke-width="1.2"/>
           <path d="M20 16l2-2" stroke="#2c6fd1" stroke-width="1.2" stroke-linecap="round"/></svg>
         </div>
@@ -453,25 +572,36 @@
       </a>
     </div>
   </div>
-
-  <div class="hero-badges fade-up">
-    <span class="badge"><span class="badge-dot"></span> Nextdoor Favorite 2022 &amp; 2023</span>
-    <span class="badge">
-      <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1l1.4 2.8 3.1.45-2.25 2.2.53 3.1L6 8.1 3.22 9.55l.53-3.1L1.5 4.25l3.1-.45L6 1z" fill="currentColor"/></svg>
-      100+ Years Combined Experience
-    </span>
-    <span class="badge">
-      <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><rect x="1" y="1" width="10" height="10" rx="2" stroke="currentColor" stroke-width="1.2"/><path d="M4 6h4M6 4v4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
-      10+ Top-Rated Carriers
-    </span>
-  </div>
 </section>
+
+<!-- ═══ TAG CAROUSEL ═══ -->
+<div class="tag-carousel-wrap">
+  <div class="tag-carousel-inner">
+    <div class="tag-carousel-label">What We Cover</div>
+    <div class="tag-scroll">
+      <span class="tag-pill">Home &amp; auto bundles</span>
+      <span class="tag-pill">New teen drivers</span>
+      <span class="tag-pill">Rental &amp; vacant properties</span>
+      <span class="tag-pill">Business liability</span>
+      <span class="tag-pill">High-value homes</span>
+      <span class="tag-pill">Life insurance</span>
+      <span class="tag-pill">Umbrella coverage</span>
+      <span class="tag-pill">Boat &amp; watercraft</span>
+      <span class="tag-pill">Condo &amp; renters</span>
+      <span class="tag-pill">Multi-policy discounts</span>
+    </div>
+  </div>
+</div>
 
 <!-- ═══ STATS ═══ -->
 <div class="stats-strip">
   <div class="stat-item">
+    <div class="stat-num"><em>8,500+</em></div>
+    <div class="stat-label">Neighbors &amp; businesses<br />insured across Central Indiana</div>
+  </div>
+  <div class="stat-item">
     <div class="stat-num">40+</div>
-    <div class="stat-label">Years serving<br />Indianapolis</div>
+    <div class="stat-label">Years serving<br />Central Indiana</div>
   </div>
   <div class="stat-item">
     <div class="stat-num">10+</div>
@@ -482,42 +612,55 @@
     <div class="stat-label">Independent — we work<br />for you, not one insurer</div>
   </div>
   <div class="stat-item">
-    <div class="stat-num">$0</div>
-    <div class="stat-label">Extra cost to use us —<br />carriers pay our fee</div>
+    <div class="stat-num">4.8<span style="font-size:26px;">★</span></div>
+    <div class="stat-label">Average rating<br />on Google Reviews</div>
   </div>
 </div>
 
 
 <!-- ═══ WHY US ═══ -->
 <section class="section why-section" id="about">
-  <div class="why-grid">
-    <div>
+  <div class="why-top">
+    <div class="why-photo fade-up">
+      <img src="agent-headshot.jpg" alt="Mike Hall, Principal Agent at Killion & Hall Insurance Agency" />
+      <div class="about-badge top-left">
+        <strong>100+</strong>
+        <span>Years combined<br />team experience</span>
+      </div>
+      <div class="about-badge dark bottom-right">
+        <strong>1981</strong>
+        <span>Licensed<br />since</span>
+      </div>
+    </div>
+    <div class="why-top-content fade-up">
       <div class="section-label">Why Killion &amp; Hall</div>
       <h2 class="section-title">On your side, every step of the way.</h2>
-      <p class="section-desc">Unlike captive agents who represent just one company, we're 100% independent — which means we shop dozens of top-rated carriers to find the best coverage at the best price for you.</p>
+      <p class="section-desc">Unlike captive agents who represent just one company, we're 100% independent — which means we shop dozens of top-rated carriers to find the best coverage at the best price for you. Principal agent Mike Hall has led the agency since 1981, and our team carries that same hands-on approach into every policy we write.</p>
+      <a href="tel:3178881040" class="btn-primary">
+        Talk to an Agent
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="why-grid">
+    <div>
       <div class="why-pillars">
         <div class="pillar">
-          <div class="pillar-icon">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2L3 5.5v4c0 4.4 3 8.5 7 9.5 4-1 7-5.1 7-9.5v-4L10 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
-          </div>
+          <div class="pillar-num">01</div>
           <div class="pillar-text">
             <h4>Truly Independent</h4>
             <p>We represent you — not any single insurance company. That means unbiased advice and the widest selection of coverage options.</p>
           </div>
         </div>
         <div class="pillar">
-          <div class="pillar-icon">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="8" r="4" stroke="currentColor" stroke-width="1.5"/><path d="M3 17c0-3.3 3.1-6 7-6s7 2.7 7 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-          </div>
+          <div class="pillar-num">02</div>
           <div class="pillar-text">
             <h4>Expert Guidance</h4>
             <p>Principal agent Mike Hall has been licensed since 1981. Our staff brings over 100 years of combined insurance experience to every client.</p>
           </div>
         </div>
         <div class="pillar">
-          <div class="pillar-icon">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10l4 4 8-8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
+          <div class="pillar-num">03</div>
           <div class="pillar-text">
             <h4>No Hidden Costs</h4>
             <p>Our services are completely free to you. Insurance carriers compensate us directly — so you get expert help at zero extra cost.</p>
@@ -528,11 +671,11 @@
     <div>
       <div class="why-card">
         <div class="why-card-badge">★ Neighborhood Favorite</div>
-        <h3>Trusted by Indianapolis<br />families since 1978.</h3>
+        <h3>Trusted by Central Indiana<br />families since 1978.</h3>
         <p>Formed in 2016 by the merger of Killion Insurance (est. 1984) and Hall Insurance (est. 1978), we bring decades of deep local knowledge and long-term client relationships to every policy we write.</p>
         <div class="why-card-detail">
           <div class="why-card-row"><span>Location</span><span>7610 Madison Ave, Indianapolis</span></div>
-          <div class="why-card-row"><span>Phone</span><span>(317) 888-1040</span></div>
+          <div class="why-card-row"><span>Call or Text</span><span>(317) 888-1040</span></div>
           <div class="why-card-row"><span>Mon – Thu</span><span>8:30 AM – 5:00 PM</span></div>
           <div class="why-card-row"><span>Friday</span><span>8:30 AM – 4:00 PM</span></div>
         </div>
@@ -557,7 +700,7 @@
       </div>
       <h3>Home Insurance</h3>
       <p>Your home is your most valuable asset. We find you the right combination of coverage, service, and competitive pricing — including specialty dwelling policies for rentals and vacant properties.</p>
-      <a href="tel:3178881040" class="service-link">Get a quote →</a>
+      <a href="quote-home.html" class="service-link">Get a quote →</a>
     </div>
     <div class="service-card">
       <div class="service-icon">
@@ -565,7 +708,7 @@
       </div>
       <h3>Auto Insurance</h3>
       <p>Car insurance covers more than just your vehicle. We do all the heavy lifting — comparing multiple carriers to find the best coverage and price, at no extra cost to you.</p>
-      <a href="tel:3178881040" class="service-link">Get a quote →</a>
+      <a href="quote-auto.html" class="service-link">Get a quote →</a>
     </div>
     <div class="service-card">
       <div class="service-icon">
@@ -581,7 +724,7 @@
       </div>
       <h3>Life Insurance</h3>
       <p>Protect the people who depend on you. We do a comprehensive needs analysis, then survey the marketplace to find the best policy at the best price for your situation.</p>
-      <a href="tel:3178881040" class="service-link">Get a quote →</a>
+      <a href="quote-life.html" class="service-link">Get a quote →</a>
     </div>
     <div class="service-card">
       <div class="service-icon">
@@ -614,8 +757,8 @@
         <div class="step">
           <div class="step-num">1</div>
           <div class="step-content">
-            <h4>Call or stop in</h4>
-            <p>Reach us at (317) 888-1040 or visit our Madison Avenue office. We'll start with a conversation about what you need to protect.</p>
+            <h4>Call, text, or stop in</h4>
+            <p>Call or text us at (317) 888-1040, or visit our Madison Avenue office. We'll start with a conversation about what you need to protect.</p>
           </div>
         </div>
         <div class="step">
@@ -678,13 +821,32 @@
         </div>
         <div class="quote-perk">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8l4 4 8-8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Local Indianapolis agents, not a call center
+          Local Central Indiana agents, not a call center
         </div>
       </div>
+      <a href="tel:3178881040" class="btn-outline-light">
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M12.5 10.2c0 .3-.1.5-.1.8-.1.3-.3.5-.5.7-.4.3-.9.5-1.4.6-.5 0-1-.1-1.6-.3-.6-.2-1.1-.5-1.7-.9a15.2 15.2 0 01-1.5-1.5c-.4-.5-.8-1-1-1.6-.3-.6-.4-1.1-.4-1.6 0-.5.2-1 .4-1.3.3-.4.6-.7 1-1 .3-.1.6-.2.8-.2.3 0 .5.1.7.2.2.1.4.3.6.6l1.6 2.2c.1.2.2.4.3.5.1.2.1.4.1.5 0 .2-.1.4-.2.5-.1.2-.3.3-.5.5l-.5.5c.1.1.1.2.2.3.4.6.7 1 1.1 1.4.4.4.9.8 1.4 1.1l.1.1.6-.5c.1-.2.3-.3.5-.3h.6c.2 0 .4.1.6.2l2.2 1.6c.3.2.4.4.6.6.1.2.1.4.1.7z" stroke="currentColor" stroke-width="1.3"/></svg>
+        Rather call or text? (317) 888-1040
+      </a>
     </div>
     <div class="quote-right">
       <div class="quote-card">
-        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" id="quoteForm">
+        <form action="https://formspree.io/f/myezoprj" method="POST" id="quoteForm">
+          <div class="picker-progress"><span></span></div>
+          <div class="coverage-picker">
+            <p class="coverage-picker-label">Which coverage are you interested in?</p>
+            <div class="coverage-picker-grid">
+              <button type="button" class="cov-pick" data-value="Home & Auto">Home &amp; Auto Bundle</button>
+              <button type="button" class="cov-pick" data-value="Auto">Auto Insurance</button>
+              <button type="button" class="cov-pick" data-value="Home">Home Insurance</button>
+              <button type="button" class="cov-pick" data-value="Life">Life Insurance</button>
+              <button type="button" class="cov-pick" data-value="Business">Business Insurance</button>
+              <button type="button" class="cov-pick" data-value="Boat">Boat / Watercraft</button>
+              <button type="button" class="cov-pick" data-value="Condo/Renters">Condo / Renters</button>
+              <button type="button" class="cov-pick" data-value="Multiple">Not Sure Yet</button>
+            </div>
+            <input type="hidden" id="insurance" name="insurance" />
+          </div>
           <div class="form-row">
             <div class="form-group">
               <label for="firstName">First Name</label>
@@ -698,19 +860,6 @@
           <div class="form-group">
             <label for="phone">Phone Number</label>
             <input type="tel" id="phone" name="phone" placeholder="(317) 555-0100" required />
-          </div>
-          <div class="form-group">
-            <label for="insurance">Type of Insurance</label>
-            <select id="insurance" name="insurance">
-              <option value="" disabled selected>Select one...</option>
-              <option value="Auto">Auto Insurance</option>
-              <option value="Home">Home Insurance</option>
-              <option value="Business">Business Insurance</option>
-              <option value="Life">Life Insurance</option>
-              <option value="Boat">Boat / Watercraft</option>
-              <option value="Condo/Renters">Condo / Renters</option>
-              <option value="Multiple">Multiple / Not Sure</option>
-            </select>
           </div>
           <div class="form-group">
             <label for="message">Anything else? <span style="font-weight:400; color:var(--ink-muted);">(optional)</span></label>
@@ -736,85 +885,64 @@
 
 <!-- ═══ TESTIMONIALS ═══ -->
 <section class="social-section">
-  <div class="section-label" style="display:inline-block;">What Our Clients Say</div>
-  <h2 class="section-title" style="max-width:480px; margin:12px auto 0; font-family:var(--serif); font-size:clamp(28px,3.5vw,44px); font-weight:500; letter-spacing:-0.02em;">Indianapolis neighbors trust us.</h2>
-
-  <!-- Google Rating Badge -->
-  <div style="margin-top:32px; display:inline-flex; align-items:center; gap:16px; background:var(--white); border:1px solid var(--border); border-radius:16px; padding:16px 28px; box-shadow:0 2px 12px rgba(0,0,0,0.06);">
-    <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-      <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-      <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
-      <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-    </svg>
-    <div style="text-align:left;">
-      <div style="font-size:13px; font-weight:600; color:var(--ink); margin-bottom:4px;">Rated 4.8 on Google</div>
-      <div style="display:flex; align-items:center; gap:4px;">
-        <span style="color:#FBBC05; font-size:16px; letter-spacing:1px;">★★★★★</span>
-        <span style="font-size:12px; color:var(--ink-muted);">Google Reviews</span>
+  <div class="social-header">
+    <div>
+      <div class="section-label">What Our Clients Say</div>
+      <h2 class="section-title" style="margin-bottom:0;">Central Indiana neighbors trust us.</h2>
+    </div>
+    <div class="rating-summary">
+      <div class="rating-num">4.8</div>
+      <div class="rating-detail">
+        <span class="rating-stars">★★★★★</span>
+        <span class="rating-sub">Google Reviews</span>
       </div>
     </div>
   </div>
 
-  <!-- Review Cards -->
   <div class="awards-row">
     <div class="award-card">
-      <div class="award-stars" style="color:#FBBC05;">★★★★★</div>
+      <div class="award-stars">★★★★★</div>
       <p>"Aaron took the time to explain a few options that Erie offers to achieve a lower rate. He ended up saving me so much more than I would have imagined. Aaron was extremely kind and patient and answered all of my questions."</p>
       <div class="award-author">Lois B.</div>
-      <div class="award-platform">
-        <svg width="12" height="12" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
-        Google Review
-      </div>
+      <div class="award-platform">Google Review</div>
     </div>
     <div class="award-card">
-      <div class="award-stars" style="color:#FBBC05;">★★★★★</div>
+      <div class="award-stars">★★★★★</div>
       <p>"Mike customized both the home and auto policies. My liability limits were doubled or tripled in most areas — AND we saved over $300.00 annually. If you are looking for complete coverage with great customer service, call this agency!"</p>
       <div class="award-author">Carole M.</div>
-      <div class="award-platform">
-        <svg width="12" height="12" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
-        Google Review
-      </div>
+      <div class="award-platform">Google Review</div>
     </div>
     <div class="award-card">
-      <div class="award-stars" style="color:#FBBC05;">★★★★★</div>
+      <div class="award-stars">★★★★★</div>
       <p>"The staff is extremely professional and helpful. I've been with this company since it was Hall Insurance in 1985. I've remained because of the people and their dedication."</p>
       <div class="award-author">Tom M.</div>
-      <div class="award-platform">
-        <svg width="12" height="12" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
-        Google Review
-      </div>
+      <div class="award-platform">Google Review</div>
     </div>
     <div class="award-card">
-      <div class="award-stars" style="color:#FBBC05;">★★★★★</div>
+      <div class="award-stars">★★★★★</div>
       <p>"They have a great staff that go above and beyond to help you. We have been with them for over 25 years. They have ALWAYS been helpful."</p>
       <div class="award-author">Mary B.</div>
-      <div class="award-platform">
-        <svg width="12" height="12" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
-        Google Review
-      </div>
+      <div class="award-platform">Google Review</div>
     </div>
   </div>
 
-  <!-- Mini quotes row -->
-  <div style="margin-top:32px; display:flex; gap:24px; justify-content:center; flex-wrap:wrap;">
-    <div style="background:var(--white); border:1px solid var(--border); border-radius:100px; padding:10px 22px; display:inline-flex; align-items:center; gap:10px;">
-      <span style="color:#FBBC05; font-size:13px;">★★★★★</span>
-      <span style="font-size:13px; color:var(--ink-light); font-style:italic;">"Great group of people, have been going there for 19 years."</span>
-      <span style="font-size:12px; font-weight:600; color:var(--ink-muted);">— Jenny H.</span>
+  <div class="mini-quotes">
+    <div class="mini-quote">
+      <span style="color:#f0c419; font-size:13px;">★★★★★</span>
+      <span style="font-size:13px; color:var(--ink-light);">"Great group of people, have been going there for 19 years."</span>
+      <span style="font-size:12px; font-weight:700; color:var(--ink-muted);">— Jenny H.</span>
     </div>
-    <div style="background:var(--white); border:1px solid var(--border); border-radius:100px; padding:10px 22px; display:inline-flex; align-items:center; gap:10px;">
-      <span style="color:#FBBC05; font-size:13px;">★★★★★</span>
-      <span style="font-size:13px; color:var(--ink-light); font-style:italic;">"Great people, great service!"</span>
-      <span style="font-size:12px; font-weight:600; color:var(--ink-muted);">— Juanita F.</span>
+    <div class="mini-quote">
+      <span style="color:#f0c419; font-size:13px;">★★★★★</span>
+      <span style="font-size:13px; color:var(--ink-light);">"Great people, great service!"</span>
+      <span style="font-size:12px; font-weight:700; color:var(--ink-muted);">— Juanita F.</span>
     </div>
   </div>
 
-  <!-- Badges row -->
-  <div style="margin-top:40px; display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
-    <div style="display:inline-flex; align-items:center; gap:12px; background:var(--white); border:1px solid var(--border); border-radius:100px; padding:12px 24px;">
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1.5l1.8 3.7 4.1.6-3 2.9.7 4.1L8 10.7l-3.6 1.9.7-4.1-3-2.9 4.1-.6L8 1.5z" fill="#b8935a"/></svg>
-      <span style="font-size:13px; font-weight:600; color:var(--ink);">Nextdoor Neighborhood Favorite</span>
+  <div class="badges-row">
+    <div class="badge-pill">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1.5l1.8 3.7 4.1.6-3 2.9.7 4.1L8 10.7l-3.6 1.9.7-4.1-3-2.9 4.1-.6L8 1.5z" fill="#5b83ad"/></svg>
+      <span style="font-size:13px; font-weight:700; color:var(--ink);">Nextdoor Neighborhood Favorite</span>
       <span style="font-size:13px; color:var(--ink-muted);">2022 &amp; 2023</span>
     </div>
   </div>
@@ -828,7 +956,7 @@
   <div class="cta-actions">
     <a href="tel:3178881040" class="btn-gold">
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M14.5 11.5c0 .3-.1.6-.2.9-.1.3-.3.5-.6.7-.4.3-.9.5-1.4.5-.5 0-1-.1-1.6-.4a16.7 16.7 0 01-1.6-.9 16.1 16.1 0 01-1.4-1.4c-.4-.5-.7-1-.9-1.6-.2-.6-.4-1.1-.4-1.6 0-.5.1-.9.4-1.3.3-.4.6-.7 1.1-.9.3-.1.5-.1.7-.1.3 0 .5.1.7.2.2.1.4.3.5.6l1.7 2.4c.1.2.2.4.3.6 0 .2.1.3.1.5 0 .2-.1.4-.2.6l-.6.6c0 .1.1.1.1.2.3.5.6.9 1 1.4.5.4.9.8 1.4 1.1h.1l.6-.6c.2-.2.4-.2.6-.2h.5c.2 0 .4.1.6.3l2.4 1.7c.3.1.5.3.6.5.1.2.2.4.2.7z" stroke="currentColor" stroke-width="1.3"/></svg>
-      Call (317) 888-1040
+      Call or Text (317) 888-1040
     </a>
     <a href="#location" class="btn-outline-white">Find Our Office</a>
   </div>
@@ -839,7 +967,7 @@
   <div class="location-inner">
     <div class="location-info">
       <h2>Visit Our Madison Avenue Office</h2>
-      <p>Conveniently located on Indianapolis's south side, our team is here Monday through Friday to help with quotes, policy questions, claims support, and more.</p>
+      <p>Conveniently located on the south side, our team is here Monday through Friday to help Central Indiana families and businesses with quotes, policy questions, claims support, and more.</p>
       <div class="location-details">
         <div class="loc-row">
           <div class="loc-icon">
@@ -855,7 +983,7 @@
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M15 12c0 .28-.07.55-.2.8-.13.28-.3.53-.53.77-.4.4-.82.6-1.27.62-.33 0-.7-.1-1.08-.28-.4-.18-.8-.42-1.22-.7-.45-.3-.87-.64-1.28-1.04-.4-.4-.74-.83-1.03-1.28-.28-.42-.52-.83-.7-1.22-.17-.4-.26-.77-.26-1.12 0-.34.08-.65.25-.93.17-.29.42-.56.78-.8.37-.24.75-.35 1.16-.35.16 0 .32.03.46.1.15.07.3.17.42.32l1.45 2.04c.12.16.2.31.26.46.06.14.09.28.09.4 0 .16-.04.32-.13.48-.08.16-.19.32-.34.48.05.07.1.14.16.2.28.44.59.85.96 1.23.37.37.76.7 1.22.97l.02.01.5-.5c.16-.16.34-.24.54-.24.09 0 .19.01.3.04.16.06.32.15.48.26l2.08 1.47c.16.1.26.23.32.38.07.15.1.3.1.45z" stroke="currentColor" stroke-width="1.3"/></svg>
           </div>
           <div class="loc-text">
-            <strong>Phone</strong>
+            <strong>Call or Text</strong>
             <a href="tel:3178881040">(317) 888-1040</a>
           </div>
         </div>
@@ -878,7 +1006,7 @@
           </div>
           <div class="loc-text">
             <strong>Email</strong>
-            <a href="mailto:info@killionhall.com">info@killionhall.com</a>
+            <a href="mailto:mike@killionhall.com">mike@killionhall.com</a>
           </div>
         </div>
       </div>
@@ -903,7 +1031,7 @@
 <footer>
   <div class="footer-top">
     <div class="footer-brand">
-      <a class="footer-logo" href="index.html">Killion <span>&</span> Hall</a>
+      <a class="footer-logo" href="index.html"><img src="logo-white.png" alt="Killion & Hall Insurance Agency"></a>
       <p>One of Central Indiana's largest independent insurance agencies — protecting families and businesses since 1978.</p>
     </div>
     <div class="footer-cols">
@@ -921,7 +1049,7 @@
         <h5>Office</h5>
         <ul>
           <li><a href="tel:3178881040">(317) 888-1040</a></li>
-          <li><a href="mailto:info@killionhall.com">info@killionhall.com</a></li>
+          <li><a href="mailto:mike@killionhall.com">mike@killionhall.com</a></li>
           <li><a href="https://maps.google.com/?q=7610+Madison+Avenue+Indianapolis+IN+46227" target="_blank">7610 Madison Ave</a></li>
           <li><a href="#">Indianapolis, IN 46227</a></li>
         </ul>
@@ -948,6 +1076,17 @@
 </footer>
 
 <script>
+  // Coverage picker buttons
+  const covPicks = document.querySelectorAll('.cov-pick');
+  const covInput = document.getElementById('insurance');
+  covPicks.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      covPicks.forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      if (covInput) covInput.value = btn.dataset.value;
+    });
+  });
+
   // Quote form submission
   const form = document.getElementById('quoteForm');
   if (form) {
@@ -979,10 +1118,10 @@
   const nav = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
     if (window.scrollY > 20) {
-      nav.style.background = 'rgba(255,255,255,0.97)';
+      nav.style.background = 'rgba(246,241,229,0.98)';
       nav.style.boxShadow = '0 1px 16px rgba(0,0,0,0.07)';
     } else {
-      nav.style.background = 'rgba(255,255,255,0.92)';
+      nav.style.background = 'rgba(246,241,229,0.94)';
       nav.style.boxShadow = 'none';
     }
   });
@@ -998,7 +1137,7 @@
     });
   }, { threshold: 0.1, rootMargin: '0px 0px -48px 0px' });
 
-  document.querySelectorAll('.service-card, .step, .pillar, .award-card, .stat-item, .loc-row, .comm-photo').forEach(el => {
+  document.querySelectorAll('.service-card, .step, .pillar, .award-card, .stat-item, .loc-row').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(20px)';
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
